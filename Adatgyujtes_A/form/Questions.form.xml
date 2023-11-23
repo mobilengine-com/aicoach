@@ -1,0 +1,397 @@
+<Form name="Questionaire" description="Questionnaire" typed="true" hidden="true" autoform="false" dateformat='(dtf MM"-"dd"-"yyyy" "HH":"mm":"ss)' numberformat='{decimalSeparator:"."}' ksubmit="nobutton" >
+	<Rgsyl>
+		<Syl syln="RootColorSyl" clrBg="#FFFFFF" fItalicValidator="false" />
+		<Syl syln="HeaderMainSyl" clrBg="#000000" clrFont="#FFDD1E" pctFontSizeValue="150" fBoldValue="true" halignValue="center" />
+		<Syl syln="SepTypeMainSyl" clrBg="#FFDD1E" pctFontSizeValue="120" fBoldValue="true" halignValue="center" />
+		<Syl syln="ScaleDescTableSyl" clrBg="#FFFFFF" halign="center" />
+		<Syl syln="ScaleDesc2LeftSyl" clrBg="#FFFFFF" halign="center" />
+		<Syl syln="HiddenSyl" clrBg="#FF0000" clrFont="#FFFF00" fBoldLabel="true" fBoldValue="true"  />
+		<Syl syln="RadioSyl"  halignValue="left" pctFontSize="110" />
+		<Syl syln="ErrorSyl"  halignValue="center" pctFontSize="110" clrFont="#FF0000" />
+		<Syl syln="DottedSyl"  pctFontSize="120" />
+		<Syl syln="NumberSyl"  pctFontSize="220" halignValue="center" />
+		<Syl syln="TimeSyl"  pctFontSize="220" halignValue="center" />
+		<Syl syln="DateSyl"  pctFontSize="220" halignValue="center" />
+		<Syl syln="TextSyl"  pctFontSize="220" halignValue="center" />
+		<Syl syln="QuestionSyl"  pctFontSize="150" fBoldLabel="true" fBoldValue="true" halignValue="center" />
+		<Syl syln="PeriodInfoSyl"  pctFontSize="150"  clrFont="#00863f" fBoldLabel="true" fBoldValue="true" halignValue="center" />
+		<Syl syln="CheckboxSyl"  halignValue="left" pctFontSize="100"  />
+		<Syl syln="Scale_Desc_TextSyl"  halignValue="center" pctFontSize="45" clrFont="#61d2ff" />
+		<Syl syln="Scale_Desc4_TextSyl"  halignValue="center" pctFontSize="95" clrFont="#61d2ff" fBoldLabel="true" fBoldValue="true" />
+		<Syl syln="Scale_Desc5_TextSyl"  halignValue="center" pctFontSize="62" clrFont="#61d2ff" fBoldLabel="true" fBoldValue="true" />
+		<Syl syln="Scale_Desc6_TextSyl"  halignValue="center" pctFontSize="70" clrFont="#61d2ff" fBoldLabel="true" fBoldValue="true" />
+		<Syl syln="Scale_Desc_1_TextSyl"  halignValue="left" pctFontSize="120" clrFont="#61d2ff" fBoldValue="true" />
+		<Syl syln="Scale_Desc_2_TextSyl"  halignValue="right" pctFontSize="120" clrFont="#61d2ff" fBoldValue="true" />
+		<Syl syln="ForwardSyl" clrBg="#FFFFFF" duIconHeightValue="70dp" duIconWidthValue="70dp" halign="right" iconValue='forward_green' buttonStyle='flat' />
+		<Syl syln="BackSyl" clrBg="#FFFFFF" duIconHeightValue="70dp" duIconWidthValue="70dp" halign="left" iconValue='back_grey' buttonStyle='flat' />
+		<Syl syln="PB00Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="left" iconValue='progressbar_0' buttonStyle='flat' />
+		<Syl syln="PB05Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="left" iconValue='progressbar_5' buttonStyle='flat' />
+		<Syl syln="PB10Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_10' buttonStyle='flat' />
+		<Syl syln="PB15Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_15' buttonStyle='flat' />
+		<Syl syln="PB20Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_20' buttonStyle='flat' />
+		<Syl syln="PB25Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_25' buttonStyle='flat' />
+		<Syl syln="PB30Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_30' buttonStyle='flat' />
+		<Syl syln="PB35Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_35' buttonStyle='flat' />
+		<Syl syln="PB40Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_40' buttonStyle='flat' />
+		<Syl syln="PB45Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_45' buttonStyle='flat' />
+		<Syl syln="PB50Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_50' buttonStyle='flat' />
+		<Syl syln="PB55Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_55' buttonStyle='flat' />
+		<Syl syln="PB60Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_60' buttonStyle='flat' />
+		<Syl syln="PB65Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_65' buttonStyle='flat' />
+		<Syl syln="PB70Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_70' buttonStyle='flat' />
+		<Syl syln="PB75Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_75' buttonStyle='flat' />
+		<Syl syln="PB80Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_85' buttonStyle='flat' />
+		<Syl syln="PB85Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_80' buttonStyle='flat' />
+		<Syl syln="PB90Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_90' buttonStyle='flat' />
+		<Syl syln="PB95Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_95' buttonStyle='flat' />
+		<Syl syln="PB100Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_100' buttonStyle='flat' />
+		<Syl syln="Smiley_1Syl"  duIconHeightValue="40dp" duIconWidthValue="39dp" halign="left" iconValue='smiley_1' buttonStyle='flat' />
+		<Syl syln="Smiley_2Syl"  duIconHeightValue="40dp" duIconWidthValue="39dp" halign="center" iconValue='smiley_2' buttonStyle='flat' />
+		<Syl syln="Smiley_3Syl"  duIconHeightValue="40dp" duIconWidthValue="39dp" halign="center" iconValue='smiley_3' buttonStyle='flat' />
+		<Syl syln="Smiley_4Syl"  duIconHeightValue="40dp" duIconWidthValue="39dp" halign="center" iconValue='smiley_4' buttonStyle='flat' />
+		<Syl syln="Smiley_5Syl"  duIconHeightValue="40dp" duIconWidthValue="39dp" halign="center" iconValue='smiley_5' buttonStyle='flat' />
+		<Syl syln="Smiley_6Syl"  duIconHeightValue="40dp" duIconWidthValue="39dp" halign="right" iconValue='smiley_6' buttonStyle='flat' />
+		<Syl syln="TypeFinishSyl" clrBg="#FFFFFF" duIconHeightValue="70dp" duIconWidthValue="130dp" halign="right" iconValue='finish' buttonStyle='flat' />
+		<Syl syln="TypeFinishSyl2" clrBg="#FFFFFF" duIconHeightValue="70dp" duIconWidthValue="130dp" halign="right" iconValue='finish' buttonStyle='flat' />
+		<Syl syln="ChkTextboxSyl" duPaddingLeft="45dp" duPaddingRight="45dp" />
+	</Rgsyl>
+	<Control type="panel" name="Root" sylnChild="=RootColorSyl">
+		<Control type="label" name="Sys_Form_Ver" label="SysFormVer:" text="1" sylnCrown="=HiddenSyl" visible="false" />
+		<Control type="label" name="Sys_User" label="SysUser:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @user" />
+		<Control type="label" name="Sys_Date" data_type="datetime" label="SysDate:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @dtlNow" />
+		<Control type="label" name="Year_Now"  label="Actual year:" sylnCrown="=HiddenSyl" data_type="int" visible="false" submit="false" reference="SELECT CAST(strftime('%Y',@1) AS INTEGER)" ref_arg="../Sys_Date"/>
+		<Control type="label" name="Answer_Timestamp"  label="Answer Timestamp:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT DISTINCT timestamp FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @1 AND question_id = @2 " ref_arg="//Root/SubjectID,//Root/Question_Id" />
+		<Control type="label" name="Question_guid" label="Aktuális kérdés guid:" visible="false" reference="GUID" sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="User_status" label="User státusz:" visible="false" data_type="int" reference="SELECT status_id FROM Reference_hv_user WHERE usr = @user AND subject_id = @1" ref_arg="//Root/SubjectID" sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="Period_Finish" label="Period finish:" visible="false" data_type="datetime" reference="SELECT period_finish FROM Reference_hv_user WHERE usr = @user AND subject_id = @1" ref_arg="//Root/SubjectID" sylnCrown="=HiddenSyl"/>
+
+		<Control type="label" name="Category_Count" label="Aktualis kategória count:" visible="false" data_type="int" reference="SELECT COUNT(type) FROM Reference_hv_questions WHERE  type = @1 " ref_arg="//Root/Category_Type" sylnCrown="=HiddenSyl"/>
+		
+		<Control type="label" name="SleepDiary_Count" label="SleepDiary countja:" visible="false" data_type="int" reference="SELECT COUNT(type) FROM Reference_hv_questions WHERE  type = 'Sleep Diary' "  sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="VAS_Count" label="VAS countja:" visible="false" data_type="int" reference="SELECT COUNT(type) FROM Reference_hv_questions WHERE type = 'VAS' "  sylnCrown="=HiddenSyl"/>
+		
+		<Control type="label" name="VAS_SleepDiary_Count" label="VAS + SleepDiary countja:" visible="false" data_type="int" reference="SELECT @1 + @2 "  ref_arg="../SleepDiary_Count,../VAS_Count" sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="VAS_GoToSleep_Count" label="VAS + GoToSleep countja:" visible="false" data_type="int" reference="SELECT @1 + 1 "  ref_arg="../VAS_Count" sylnCrown="=HiddenSyl"/>
+		
+		
+		
+		
+		<Control type="label" name="First_VAS" label="Első VAS kérdés idja:" visible="false" data_type="int" reference="SELECT MIN(question_id) FROM Reference_hv_questions WHERE  type = 'VAS' " sylnCrown="=HiddenSyl"/>
+
+		<!--Control type="label" name="Question_Count" label="Megválaszolt kérdések száma:" visible="false" data_type="int" reference="SELECT COUNT(T.question_id) cnt_qid FROM (SELECT ATP.question_id FROM Reference_hv_answer_temp ATP INNER JOIN Reference_hv_questions Q ON ATP.question_id = Q.question_id WHERE Q.type = @2 AND ATP.subject_id = @1 AND ATP.usr = @user GROUP BY ATP.question_id) T" ref_arg="//Root/SubjectID,//Root/Category_Type"/-->
+		
+		<!--Control type="label" name="Question_Count" label="Megválaszolt kérdések száma:" visible="false" data_type="int" reference="SELECT COUNT(DISTINCT ATP.question_id) FROM Reference_hv_answer_temp ATP INNER JOIN Reference_hv_questions Q ON ATP.question_id = Q.question_id WHERE Q.type = @2 AND ATP.subject_id = @1 AND ATP.usr = @user AND ATP.answer IS NOT NULL AND ATP.answer != ''" ref_arg="//Root/SubjectID,//Root/Category_Type" sylnCrown="=HiddenSyl"/-->
+		
+		<Control type="label" name="Question_Count" label="Megválaszolt kérdések száma:" visible="false" data_type="int" reference="SELECT COUNT(DISTINCT ATP.question_id) FROM Reference_hv_answer_temp ATP INNER JOIN Reference_hv_questions Q ON ATP.question_id = Q.question_id WHERE ATP.subject_id = @1 AND ATP.usr = @user AND ATP.answer IS NOT NULL AND ATP.answer != ''" ref_arg="//Root/SubjectID,//Root/Category_Type" sylnCrown="=HiddenSyl"/>
+		
+		
+		<Control type="label" name="VAS_Sleep_Question_Count" label="Megválaszolt VAS és Sleepek száma:" visible="false" data_type="int" reference="SELECT COUNT(DISTINCT ATP.question_id) FROM Reference_hv_answer_temp ATP INNER JOIN Reference_hv_questions Q ON ATP.question_id = Q.question_id WHERE (Q.type = 'VAS' OR Q.type = 'Sleep Diary' ) AND ATP.subject_id = @1 AND ATP.usr = @user AND ATP.answer IS NOT NULL AND ATP.answer != ''" ref_arg="//Root/SubjectID" sylnCrown="=HiddenSyl"/>
+		
+		<Control type="label" name="GotToSleepVasCategory_Count" label="Megválaszolt VAS és GoToSleepek száma:" visible="false" data_type="int" reference="SELECT COUNT(DISTINCT ATP.question_id) + 1 FROM Reference_hv_answer_temp ATP INNER JOIN Reference_hv_questions Q ON ATP.question_id = Q.question_id WHERE (Q.type = 'VAS' OR Q.type = 'Sleep Diary' ) AND ATP.subject_id = @1 AND ATP.usr = @user AND ATP.answer IS NOT NULL AND ATP.answer != ''" ref_arg="//Root/SubjectID" sylnCrown="=HiddenSyl"/>
+		
+		
+
+		<Control type="label" name="Category_Count_Percent" label="Százalék:" visible="false" data_type="float" reference="SELECT  ROUND(ROUND(@1 * 1.0 / @2  ,2)*100,0)" ref_arg="//Root/Question_Count,//Root/Category_Count" sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="Category_Count_SleepVAS_Percent" label="Százalék VAS Sleep:" visible="false" data_type="float" reference="SELECT  ROUND(ROUND(@1 * 1.0 / @2  ,2)*100,0)" ref_arg="//Root/VAS_Sleep_Question_Count,//Root/VAS_SleepDiary_Count" sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="Category_Count_GoToSleepVAS_Percent" label="Százalék VAS GoToSleep:" visible="false" data_type="float" reference="SELECT  ROUND(ROUND(@1 * 1.0 / @2  ,2)*100,0)" ref_arg="//Root/GotToSleepVasCategory_Count,//Root/VAS_GoToSleep_Count" sylnCrown="=HiddenSyl"/>
+		
+		<Control type="label" name="Question_Id" label="Question id:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT question_id FROM Reference_hv_next_form_temp WHERE usr = @user" />
+		<Control type="label" name="Question_sequence" label="Question sequence:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT question_sequence FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" />
+		<Control type="label" name="Category_Id" label="Category id:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT category_id FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" />
+		<Control type="label" name="Category_Type" label="Category type:" text="" sylnCrown="=HiddenSyl" visible="false"  reference="SELECT type FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" />
+		<Control type="label" name="SubjectID" label="Subject_ID:" text="" sylnCrown="=HiddenSyl" visible="false"  reference="SELECT subject_id FROM Reference_hv_user WHERE usr = @user AND status_id &lt; 60"/>
+		<Control type="label" name="Category_Forward_Type" label="Category forward type:" text="" sylnCrown="=HiddenSyl" visible="false"  reference="SELECT type FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Forward_Id" />
+		<Control type="label" name="Category_Back_Id" label="Category back id:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT category_id FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Back_Id" />
+		<Control type="label" name="Question_Back_Id" label="back question_id:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT question_id FROM Reference_hv_questions WHERE question_sequence &lt; @1  ORDER BY question_sequence DESC LIMIT 1" ref_arg="../Question_sequence" />
+
+		<!--<Control type="label" name="Category_Forward_Id" label="Category forward id:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT MIN(category_id) FROM Reference_hv_questions WHERE category_id &gt; @1 " ref_arg="../Category_Id" />-->
+
+		<Control type="label" name="Question_Forward_Id" label="forward question_id:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT question_id FROM Reference_hv_questions WHERE question_sequence &gt; @1  ORDER BY question_sequence LIMIT 1" ref_arg="../Question_sequence" />
+		<Control type="label" name="Category_Forward_Id" label="Category forward id:" text="" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT category_id FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Forward_Id" />
+
+		<Control type="panel" name="Period_Info_P" layout="standard" navigation="inline" generator="SELECT period_info FROM Reference_hv_questions WHERE question_id = @1 AND period_info IS NOT NULL AND period_info != ''" ref_arg="../Question_Id"  >
+			<Control type="label" name="Period_Info" reference="SELECT @1" ref_arg="PARENT.col0" sylnCrown="=PeriodInfoSyl" />
+		</Control>
+		<Control type="label" name="Answer_Content_Id" label="Answer content id:" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT answer_content_id FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" />
+		<Control type="label" name="Answer_Control_Type" label="Answer control type:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT control_type FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" />
+		<Control type="label" name="Scale_Desc_Content_Id" label="Scale desc content id:" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT scale_description_content_id FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" />
+		<Control type="label" name="Scale_Desc_Column_Amount" label="Scale desc column amount:" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT scale_description_column_amount FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" />
+		<Control type="label" name="Question" reference="SELECT question FROM Reference_hv_questions WHERE question_id = @1" ref_arg="../Question_Id" sylnCrown="=QuestionSyl" />
+		<Control type="separator" name="Question_spt"/>
+		<Control type="panel" name="Checkbox_Answer_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'checkbox'" ref_arg="../Answer_Control_Type" >
+			<Control type="label" name="Checkbox_IsExist" visible="false" label="van e rá válasz?" text="" data_type="int" reference="COUNT" ref_arg="../Checkbox_Answer_T_P/Checkbox_Answer_T_P.*/Answer_Row/Is_Checked" />
+			<Control type="panel" name="Checkbox_Answer_T_P" layout="standard" navigation="inline" data_type="int,string,int" generator="SELECT id, answer, answer_key FROM Reference_hv_answers WHERE content_id = @1 ORDER BY answer_key" ref_arg="//Root/Answer_Content_Id" >
+				<Control type="panel" name="Answer_Row" layout="table" navigation="inline" headless="true" >
+					<Control type="separator" name="SegedOszlop3" width="0.1swt"/>
+					<Control type="checkbox" name="Is_Checked" size="medium" true_values="true" width="0.2 swt" reference="SELECT 'true' FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @3 AND question_id = @1 AND is_checked = 1 AND answer = @2"  ref_arg="//Root/Question_Id,../PARENT.col1,//Root/SubjectID" />
+					<Control type="label" name="Question_guid_cb" label="Aktuális kérdés guid:" visible="false" reference="GUID"/>
+					<!--<Control type="checkbox" name="Is_Checked" size="medium" width="0.2 swt"  />-->
+					<Control type="label" name="Checkbox_Answer_Id"  sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT @1" ref_arg="../PARENT.col0" />
+					<Control type="label" name="Checkbox_Answer" width="0.7 swt" reference="SELECT @1" ref_arg="../PARENT.col1" sylnCrown="=CheckboxSyl" />
+					<Control type="label" name="Checkbox_Answer_Key"  sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT @1" ref_arg="../PARENT.col2" />
+				</Control>
+				<Control type="panel" name="Comment_P" layout="standard" navigation="inline" sylnChild="=ChkTextboxSyl" generator="SELECT comment_label FROM Reference_hv_answers WHERE id = @1 AND is_comment = 1 AND @2 = 1" ref_arg="../Answer_Row/Checkbox_Answer_Id,../Answer_Row/Is_Checked" >
+					<Control type="textbox" name="Comment" size="large" lines="1" reference="SELECT other FROM Reference_hv_answer_temp WHERE usr = @user AND question_id = @1 AND subject_id = @2 AND answer = @3" ref_arg="//Root/Question_Id,//Root/SubjectID,../../../Answer_Row/Checkbox_Answer_Id" hint_reference="SELECT @1" hint_ref_arg="PARENT.col0" />
+				</Control>
+			</Control>
+		</Control>
+		<Control type="panel" name="Dotted_Answer_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'dotted_combobox'" ref_arg="../Answer_Control_Type" >
+			<Control type="panel" name="Scale_Desc_2_P" layout="table" navigation="inline" headless="true" sylnRow="=ScaleDescTableSyl" generator="SELECT '1' WHERE @1 = 2" ref_arg="//Root/Scale_Desc_Column_Amount" >
+				<Control type="label" name="Scale_Desc_1_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1" ref_arg="//Root/Scale_Desc_Content_Id" />
+				<Control type="label" name="Scale_Desc_1_Text" width="0.35 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_1_Id" sylnCrown="=Scale_Desc_1_TextSyl" />
+				<Control type="label" name="Scale_Desc_2_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_1_Id" />
+				<Control type="separator" name="segedOszlop" width="0.3 swt" />
+				<Control type="label" name="Scale_Desc_2_Text" width="0.35 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_2_Id" sylnCrown="=Scale_Desc_2_TextSyl" />
+			</Control>
+			<Control type="panel" name="Scale_Desc_4_P" layout="table" navigation="inline" headless="true" sylnRow="=ScaleDescTableSyl" generator="SELECT '1' WHERE @1 = 4" ref_arg="//Root/Scale_Desc_Column_Amount" >
+				<Control type="label" name="Scale_Desc_1_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1" ref_arg="//Root/Scale_Desc_Content_Id" />
+				<Control type="label" name="Scale_Desc_1_Text" width="0.25 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_1_Id" sylnCrown="=Scale_Desc4_TextSyl" />
+				<Control type="label" name="Scale_Desc_2_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_1_Id" />
+				<Control type="label" name="Scale_Desc_2_Text" width="0.25 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_2_Id" sylnCrown="=Scale_Desc4_TextSyl" />
+				<Control type="label" name="Scale_Desc_3_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_2_Id" />
+				<Control type="label" name="Scale_Desc_3_Text" width="0.25 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_3_Id" sylnCrown="=Scale_Desc4_TextSyl" />
+				<Control type="label" name="Scale_Desc_4_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_3_Id" />
+				<Control type="label" name="Scale_Desc_4_Text" width="0.25 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_4_Id" sylnCrown="=Scale_Desc4_TextSyl" />
+			</Control>
+			<Control type="panel" name="Scale_Desc_5_P" layout="table" navigation="inline" headless="true" sylnRow="=ScaleDescTableSyl" generator="SELECT '1' WHERE @1 = 5" ref_arg="//Root/Scale_Desc_Column_Amount" >
+				<Control type="label" name="Scale_Desc_1_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1" ref_arg="//Root/Scale_Desc_Content_Id" />
+				<Control type="label" name="Scale_Desc_1_Text" width="0.2 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_1_Id" sylnCrown="=Scale_Desc5_TextSyl" />
+				<Control type="label" name="Scale_Desc_2_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_1_Id" />
+				<Control type="label" name="Scale_Desc_2_Text" width="0.2 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_2_Id" sylnCrown="=Scale_Desc5_TextSyl" />
+				<Control type="label" name="Scale_Desc_3_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_2_Id" />
+				<Control type="label" name="Scale_Desc_3_Text" width="0.2 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_3_Id" sylnCrown="=Scale_Desc5_TextSyl" />
+				<Control type="label" name="Scale_Desc_4_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_3_Id" />
+				<Control type="label" name="Scale_Desc_4_Text" width="0.2 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_4_Id" sylnCrown="=Scale_Desc5_TextSyl" />
+				<Control type="label" name="Scale_Desc_5_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_4_Id" />
+				<Control type="label" name="Scale_Desc_5_Text" width="0.2 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_5_Id" sylnCrown="=Scale_Desc5_TextSyl" />
+			</Control>
+			<Control type="panel" name="Scale_Desc_6_P" layout="table" navigation="inline" headless="true" sylnRow="=ScaleDescTableSyl" generator="SELECT '1' WHERE @1 = 6" ref_arg="//Root/Scale_Desc_Column_Amount" >
+				<Control type="label" name="Scale_Desc_1_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1" ref_arg="//Root/Scale_Desc_Content_Id" />
+				<Control type="label" name="Scale_Desc_1_Text" width="0.22 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_1_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+
+				<Control type="label" name="Scale_Desc_2_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_1_Id" />
+				<Control type="label" name="Scale_Desc_2_Text" width="0.167 swt" visible="false" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_2_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+				<Control type="label" name="Empty1" text=" " width="0.07 swt" submit="false" />
+
+				<Control type="label" name="Scale_Desc_3_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_2_Id" />
+				<Control type="label" name="Scale_Desc_3_Text" width="0.26 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_3_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+
+				<Control type="label" name="Scale_Desc_4_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_3_Id" />
+				<Control type="label" name="Scale_Desc_4_Text" width="0.166 swt" visible="false" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_4_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+				<Control type="label" name="Empty2" text=" " width="0.06 swt" submit="false" />
+
+				<Control type="label" name="Scale_Desc_5_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_4_Id" />
+				<Control type="label" name="Scale_Desc_5_Text" width="0.27 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_5_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+
+				<Control type="label" name="Scale_Desc_6_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_5_Id" />
+				<Control type="label" name="Scale_Desc_6_Text" width="0.167 swt" visible="false" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_6_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+				<Control type="label" name="Empty3" text=" " width="0.11 swt" submit="false" />
+			</Control>
+			<Control type="combobox" name="Dotted_Answer" ptype="dotted" choice="button" size="large" data_type="int,string" reference="SELECT id, answer FROM Reference_hv_answers WHERE content_id = @1" ref_arg="//Root/Answer_Content_Id" value_reference="SELECT answer FROM Reference_hv_answer_temp WHERE question_id = @1 AND usr = @user AND subject_id = @2" value_ref_arg="//Root/Question_Id,//Root/SubjectID" sylnCrown="=DottedSyl" >
+				<!--<Validators>
+					<Validator type="RequiredValidator" />
+				</Validators>-->
+			</Control>
+			<Control type="label" name="mivan" label="mi van kiválasztva?" visible="false" sylnCrown="=HiddenSyl" reference="SELECT A.answer FROM Reference_hv_answer_temp AS AT INNER JOIN Reference_hv_answers AS A ON A.id = AT.answer WHERE AT.question_id = @1 AND AT.usr = @user AND AT.subject_id = @2" ref_arg="//Root/Question_Id,//Root/SubjectID"/>
+			<Control type="label" name="Dotted_IsExist" visible="false" label="van e rá válasz?" text="" data_type="int" reference="SELECT CASE WHEN SUBSTR(@1 , 1,7) != '__NULL_' AND @1 != '' THEN 1 ELSE 0 END" ref_arg="../Dotted_Answer_Id" />
+			<Control type="panel" name="Scale_Desc_6_Bottom_P" layout="table" navigation="inline" headless="true" sylnRow="=ScaleDescTableSyl" generator="SELECT '1' WHERE @1 = 6" ref_arg="//Root/Scale_Desc_Column_Amount" >
+				<Control type="label" name="Scale_Desc_1_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1" ref_arg="//Root/Scale_Desc_Content_Id" />
+				<Control type="label" name="Scale_Desc_1_Text"  submit="false" visible="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_1_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+				<Control type="label" name="Empty1" text=" " width="0.17 swt" submit="false" />
+
+				<Control type="label" name="Scale_Desc_2_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_1_Id" />
+				<Control type="label" name="Scale_Desc_2_Text" width="0.20 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_2_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+
+				<Control type="label" name="Scale_Desc_3_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_2_Id" />
+				<Control type="label" name="Scale_Desc_3_Text"  visible="false" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_3_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+				<Control type="label" name="Empty2" text=" " width="0.08 swt" submit="false" />
+
+				<Control type="label" name="Scale_Desc_4_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_3_Id" />
+				<Control type="label" name="Scale_Desc_4_Text" width="0.25 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_4_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+
+				<Control type="label" name="Scale_Desc_5_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_4_Id" />
+				<Control type="label" name="Scale_Desc_5_Text"  visible="false" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_5_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+				<Control type="label" name="Empty3" text=" " width="0.1 swt" submit="false" />
+
+				<Control type="label" name="Scale_Desc_6_Id" sylnCrown="=HiddenSyl" visible="false" submit="false" data_type="int" reference="SELECT MIN(Id) FROM Reference_hv_scale_descriptions WHERE content_id = @1 AND id &gt; @2" ref_arg="//Root/Scale_Desc_Content_Id,../Scale_Desc_5_Id" />
+				<Control type="label" name="Scale_Desc_6_Text" width="0.20 swt" submit="false" reference="SELECT description FROM Reference_hv_scale_descriptions WHERE id = @1" ref_arg="../Scale_Desc_6_Id" sylnCrown="=Scale_Desc6_TextSyl" />
+			</Control>
+			<Control type="label" name="Dotted_Answer_Value" label="Dotted answer Value:" sylnCrown="=HiddenSyl" visible="false" reference="=@1" ref_arg="../Dotted_Answer" />
+			<Control type="label" name="Dotted_Answer_Id" label="Dotted answer id:" sylnCrown="=HiddenSyl" visible="false" reference="=@1" ref_arg="../Dotted_Answer.key" />
+			<Control type="label" name="Dotted_Answer_Key" label="Dotted answer key:" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT answer_key FROM Reference_hv_answers WHERE id = @1" ref_arg="../Dotted_Answer.key" />
+		</Control>
+
+		<Control type="panel" name="Smiley_P" layout="table" navigation="inline" width="1swt" headless="true" generator="SELECT '1' WHERE @1 = 'VAS' " ref_arg="//Root/Category_Type" >
+			<Control type="label" name="Smiley_1" label="" width="0.2swt"  sylnCrown="=Smiley_1Syl"/>
+			<Control type="label" name="Smiley_2" label="" width="0.2swt" sylnCrown="=Smiley_2Syl"/>
+			<Control type="label" name="Smiley_3" label="" width="0.2swt" sylnCrown="=Smiley_3Syl"/>
+			<Control type="label" name="Smiley_4" label=""  width="0.2swt" sylnCrown="=Smiley_4Syl"/>
+			<Control type="label" name="Smiley_5" label="" width="0.2swt" sylnCrown="=Smiley_5Syl"/>
+		</Control>
+		<Control type="panel" name="Radio_Answer_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'radiobutton'" ref_arg="../Answer_Control_Type" >
+			<Control type="panel" name="Radio_Answer_T" layout="table" navigation="inline" width="1swt" headless="true" >			
+				<!--<Control type="label" name="SegedOszlop1" width="0.1swt"  />-->
+				<Control type="radiobutton" name="Radio_Answer"  size="large"  data_type="int,string"  width="1swt" value_reference="SELECT answer FROM Reference_hv_answer_temp WHERE question_id = @1 AND usr = @user AND subject_id = @2" value_ref_arg="//Root/Question_Id,//Root/SubjectID" reference="SELECT id, answer FROM Reference_hv_answers WHERE content_id = @1" ref_arg="//Root/Answer_Content_Id" sylnCrown="=RadioSyl" >
+					<!--<Validators>
+						<Validator type="RequiredValidator" />
+					</Validators>-->
+				</Control>
+				<!--<Control type="label" name="SegedOszlop2" width="0.05swt"/>-->
+			</Control>	
+			<Control type="label" name="Radio_Answer_Value" label="Radio answer Value:" sylnCrown="=HiddenSyl" visible="false" reference="=@1" ref_arg="../Radio_Answer_T/Radio_Answer" />
+			<Control type="label" name="Radio_Answer_Id" label="Radio answer id:" sylnCrown="=HiddenSyl" visible="false" reference="=@1" ref_arg="../Radio_Answer_T/Radio_Answer.key" />
+			<Control type="label" name="Radio_IsExist" visible="false" label="van e rá válasz?" text="" data_type="int" reference="SELECT CASE WHEN SUBSTR(@1 , 1,7) != '__NULL_' AND @1 != '' THEN 1 ELSE 0 END" ref_arg="../Radio_Answer_Id" />
+			<Control type="label" name="Radio_Answer_Key" label="Radio answer key:" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT answer_key FROM Reference_hv_answers WHERE id = @1" ref_arg="../Radio_Answer_T/Radio_Answer.key" />
+		</Control>
+		
+		
+		<Control type="panel" name="Simple_Combobox_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'simple_combobox'" ref_arg="../Answer_Control_Type" >
+			<Control type="panel" name="Simple_Combobox_Answer_T" layout="table" navigation="inline" width="1swt" headless="true" >			
+				<!--<Control type="label" name="SegedOszlop1" width="0.1swt"  />-->
+				<Control type="combobox" name="Simple_Combobox_Answer" choice="dropdown" width="1swt" data_type="int,string" reference="SELECT id, answer FROM Reference_hv_answers WHERE content_id = @1 AND (answer + 0 &lt;= @2 OR LENGTH(TRIM(answer,'0123456789')) != 0)" ref_arg="//Root/Answer_Content_Id,//Root/Year_Now" value_reference="SELECT answer FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @2 AND question_id = @1 UNION ALL SELECT t.answer FROM (SELECT answer FROM Reference_hv_answers WHERE content_id = @3 ORDER BY content_id LIMIT 1) t LIMIT 1" value_ref_arg="//Root/Question_Id,//Root/SubjectID,//Root/Answer_Content_Id" sylnCrown="=TextSyl" />
+				<!--<Control type="label" name="SegedOszlop2" width="0.05swt"/>-->
+			</Control>
+			<Control type="label" name="Simple_Combobox_Id" label="Simple combobox answer id:" sylnCrown="=HiddenSyl" visible="false" reference="=@1" ref_arg="../Simple_Combobox_Answer_T/Simple_Combobox_Answer.key" />
+			<Control type="label" name="Simple_Combobox_IsExist" visible="false" label="van e rá válasz?" text="" data_type="int" reference="SELECT CASE WHEN SUBSTR(@1 , 1,7) != '__NULL_' AND @1 != '' THEN 1 ELSE 0 END" ref_arg="../Simple_Combobox_Id" />
+		</Control>
+		
+		<Control type="panel" name="Time_Combobox_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'time_combobox'" ref_arg="../Answer_Control_Type" >
+			<Control type="panel" name="Time_Combobox_Label_T" layout="table" navigation="inline" width="1swt" headless="true" >
+				<Control type="label" name="Hour_Combobox_Answer" text="hour" width="0.5swt" submit="false" sylnCrown="=PeriodInfoSyl" />
+				<Control type="label" name="Minute_Combobox_Answer" text="min" width="0.5swt" submit="false" sylnCrown="=PeriodInfoSyl" />
+			</Control>
+			<Control type="panel" name="Time_Combobox_Answer_T" layout="table" navigation="inline" width="1swt" headless="true" >			
+				<Control type="label" name="SegedOszlop1" width="0.12swt"  />
+				<Control type="combobox" name="Hour_Combobox_Answer" choice="dropdown" width="0.33swt" data_type="int,string" reference="SELECT id, answer FROM Reference_hv_answers WHERE content_id = @1" ref_arg="//Root/Answer_Content_Id" value_reference="SELECT SUBSTR(answer,1,2) FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @2 AND question_id = @1 UNION ALL SELECT '00' answer LIMIT 1" value_ref_arg="//Root/Question_Id,//Root/SubjectID" sylnCrown="=TextSyl" />
+				<Control type="label" name="SegedOszlop2" width="0.1swt"/>
+				<Control type="combobox" name="Minute_Combobox_Answer" choice="dropdown" width="0.33swt" data_type="int,string" reference="SELECT id, answer FROM Reference_hv_answers WHERE content_id = @1" ref_arg="//Root/Answer_Content_Id" value_reference="SELECT SUBSTR(answer,4,2) FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @2 AND question_id = @1 UNION ALL SELECT '00' answer LIMIT 1" value_ref_arg="//Root/Question_Id,//Root/SubjectID" sylnCrown="=TextSyl" />
+				<Control type="label" name="SegedOszlop3" width="0.12swt"/>
+			</Control>			
+			<Control type="separator" name="BR" />
+			<Control type="label" name="Time_Combobox_Answer" label="Time combobox answer:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @1 || ':' || @2" ref_arg="../Time_Combobox_Answer_T/Hour_Combobox_Answer,../Time_Combobox_Answer_T/Minute_Combobox_Answer" />
+			<Control type="label" name="Time_Combobox_IsExist" visible="false" sylnCrown="=HiddenSyl" label="van e rá válasz?" data_type="int" reference="SELECT CASE WHEN SUBSTR(@1,1,7) != '__NULL_' AND @1 != '' AND SUBSTR(@2,1,7) != '__NULL_' AND @2 != '' THEN 1 ELSE 0 END" ref_arg="../Time_Combobox_Answer_T/Hour_Combobox_Answer,../Time_Combobox_Answer_T/Minute_Combobox_Answer" />
+		</Control>
+		
+		<Control type="panel" name="Text_Answer_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'textbox'" ref_arg="../Answer_Control_Type" >
+			<Control type="textbox" name="Text_Answer" text=""  size="large" reference="SELECT answer FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @2 AND question_id = @1 " ref_arg="//Root/Question_Id,//Root/SubjectID" sylnCrown="=TextSyl" >
+			</Control>
+		</Control>
+		
+		<Control type="panel" name="Number_Answer_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'numberbox'" ref_arg="../Answer_Control_Type" >
+			<Control type="textbox" name="Number_Answer"  size="large" ptype="int" readonly="true" reference="SELECT answer FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @2 AND question_id = @1 " ref_arg="//Root/Question_Id,//Root/SubjectID" sylnCrown="=NumberSyl" />
+				
+		</Control>
+
+		<Control type="panel" name="Date_Answer_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'datetimepicker'" ref_arg="../Answer_Control_Type" >
+			<Control type="textbox" name="Date_Answer"  size="large" ptype="datetime" is24h="false" readonly="true" reference="SELECT DATETIME(answer) FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @2 AND question_id = @1 " ref_arg="//Root/Question_Id,//Root/SubjectID" sylnCrown="=DateSyl" />
+				
+		</Control>
+		<Control type="panel" name="Time_Answer_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'timepicker'" ref_arg="../Answer_Control_Type" >
+			<Control type="textbox" name="TimePicker_Answer" size="large" ptype="time" is24h="false" readonly="true" submit="false" reference="SELECT CASE WHEN COUNT(1) = 0 THEN DATETIME(@dtlNow , 'start of day') ELSE DATETIME(STRFTIME('%Y-%m-%d ', @dtlNow ) || SUBSTR(answer, 12, 5)) END FROM Reference_hv_answer_temp WHERE usr = @user AND subject_id = @2 AND question_id = @1 " ref_arg="//Root/Question_Id,//Root/SubjectID"  sylnCrown="=TimeSyl" />
+			<Control type="label" name="Time_Answer" label="Time_Answer" visible="false" sylnCrown="=HiddenSyl" reference="SELECT STRFTIME('%m-%d-%Y ', @dtlNow ) || STRFTIME('%H:%M', @1 )" ref_arg="../TimePicker_Answer" />
+		</Control>
+		
+		<Control type="label" name="checkboxseged" label="CHECKBOX" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Checkbox_Answer_P/Checkbox_Answer_P&lt;0&gt;/Checkbox_IsExist"/>
+		<Control type="label" name="dottedseged" label="DOTTED" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Dotted_Answer_P/Dotted_Answer_P&lt;0&gt;/Dotted_IsExist"/>
+		<Control type="label" name="radioseged" label="RADIO" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Radio_Answer_P/Radio_Answer_P&lt;0&gt;/Radio_IsExist"/>
+		<Control type="label" name="numberseged" label="NUMBER" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Number_Answer_P/Number_Answer_P&lt;0&gt;/Number_Answer"/>
+		<Control type="label" name="textboxseged" label="TEXTBOX" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Text_Answer_P/Text_Answer_P&lt;0&gt;/Text_Answer"/>
+		<Control type="label" name="dateseged" label="DATE" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Date_Answer_P/Date_Answer_P&lt;0&gt;/Date_Answer"/>
+		<Control type="label" name="timeseged" label="TIME" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Time_Answer_P/Time_Answer_P&lt;0&gt;/Time_Answer"/>
+		<Control type="label" name="simple_combo_seged" label="SimpleCombo" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Simple_Combobox_P/Simple_Combobox_P&lt;0&gt;/Simple_Combobox_IsExist"/>
+		<Control type="label" name="time_combo_seged" label="TimeCombo" data_type="string" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT SUBSTR(@1,1,7)" ref_arg="//Root/Time_Combobox_P/Time_Combobox_P&lt;0&gt;/Time_Combobox_IsExist"/>
+		<Control type="label" name="textisnull" label="text default value:" reference="SELECT 'ures' WHERE @1=''" sylnCrown="=HiddenSyl" visible="false" ref_arg="//Root/Text_Answer_P/Text_Answer_P&lt;0&gt;/Text_Answer"/>
+		<Control type="label" name="textvaluelabel" label="text value:" reference="SELECT 'ures' WHERE @1 = ''" sylnCrown="=HiddenSyl" visible="false" ref_arg="//Root/Number_Answer_P/Number_Answer_P&lt;0&gt;/Number_Answer"/>
+		
+		
+		
+		<Control type="label" name="kiiras2" label="actionforward?" submit="false" sylnCrown="=HiddenSyl" visible="false" reference="SELECT '1' WHERE @1 != 1 AND @2 != 1 OR @3 = 0" ref_arg="//Root/Dotted_Answer_P/Dotted_Answer_P&lt;0&gt;/Dotted_IsExist,//Root/Radio_Answer_P/Radio_Answer_P&lt;0&gt;/Radio_IsExist,//Root/Checkbox_Answer_P/Checkbox_Answer_P&lt;0&gt;/Checkbox_IsExist"/>
+		
+		<Control type="label" name="forward_actions" label="kötelező?" submit="false"  visible="false" sylnCrown="=HiddenSyl" reference="SELECT '1' WHERE @1 = '1' OR @2 = 1" ref_arg="../BTN_T/Forward_A_P/Forward_A_P&lt;0&gt;/FinishAction,../BTN_T/Finish_A_P/Finish_A_P&lt;0&gt;/Finish/Finish&lt;0&gt;/FinishAction"/>
+		
+		<Control type="panel" name="ForwardActionClick" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 = '1' OR @2 = 1" ref_arg="../forward_actions">
+			<Control type="label" name="AnswerRequired" text="The answer is required." sylnCrown="=ErrorSyl"/>
+		</Control>
+		
+		<Control type="label" name="AnswerValidator" label="AnswerValidator" submit="false" visible="false" sylnCrown="=HiddenSyl" reference="SELECT CASE WHEN (@1 != 0 AND SUBSTR(@1,1,7) != '__NULL_') OR (@2 != 0 AND SUBSTR(@2,1,7) != '__NULL_') OR (@3 != 0 AND SUBSTR(@3,1,7) != '__NULL_') OR (SUBSTR(@4,1,7) != '__NULL_' AND @4 != '') OR (SUBSTR(@5,1,7) != '__NULL_' AND @5 != '') OR (SUBSTR(@6,1,7) != '__NULL_') OR (SUBSTR(@7,1,7) != '__NULL_' ) OR (@8 != 0 AND SUBSTR(@8,1,7) != '__NULL_') OR (@9 != 0 AND SUBSTR(@9,1,7) != '__NULL_') THEN 'true' ELSE 'false' END"  ref_arg="//Root/Checkbox_Answer_P/Checkbox_Answer_P&lt;0&gt;/Checkbox_IsExist,//Root/Radio_Answer_P/Radio_Answer_P&lt;0&gt;/Radio_IsExist,//Root/Dotted_Answer_P/Dotted_Answer_P&lt;0&gt;/Dotted_IsExist,//Root/Number_Answer_P/Number_Answer_P&lt;0&gt;/Number_Answer.key,//Root/Text_Answer_P/Text_Answer_P&lt;0&gt;/Text_Answer.key,//Root/Date_Answer_P/Date_Answer_P&lt;0&gt;/Date_Answer,//Root/Time_Answer_P/Time_Answer_P&lt;0&gt;/Time_Answer,//Root/Simple_Combobox_P/Simple_Combobox_P&lt;0&gt;/Simple_Combobox_IsExist,//Root/Time_Combobox_P/Time_Combobox_P&lt;0&gt;/Time_Combobox_IsExist" />
+		
+		<Control type="separator" name="BR1" />
+		<Control type="separator" name="BR2" />
+		
+		<Control type="panel" name="BTN_T" layout="table" navigation="inline" headless="true" width="1 swt">
+			<Control type="panel" name="BackToSleep_BTN_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 != @2 AND @3 = 40"  ref_arg="//Root/Category_Id,//Root/Category_Back_Id,//Root/User_status" > 
+				<Control type="closebutton" name="BackToSleep" action="submit_form" width="0.5swt" next_form_name="hv_sleep2" sylnCrown="=BackSyl" />
+			</Control>
+			<Control type="panel" name="Back_BTN_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 = @2"  ref_arg="//Root/Category_Id,//Root/Category_Back_Id" > 
+				<Control type="closebutton" name="Back"  action="submit_form" width="0.5swt" next_form_name="Questionaire" sylnCrown="=BackSyl" />
+			</Control>
+			<Control type="panel" name="Empty_Back_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 != @2 AND @3 != 40"  ref_arg="//Root/Category_Id,//Root/Category_Back_Id,//Root/User_status" >
+				<Control type="label" name="empty" text="" width="0.5swt"  />
+			</Control>
+			<!--<Control type="separator" name="spt"  width="0.6swt" />-->
+			
+			
+		<!-- forward submit buttons AND forward action button-->
+			<Control type="panel" name="Forward_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'true'" ref_arg="//Root/AnswerValidator" > 
+				<Control type="panel" name="Forward_BTN_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 = @2 AND @3 = @4"  ref_arg="//Root/Category_Type,//Root/Category_Forward_Type,//Root/Category_Id,//Root/Category_Forward_Id" > 
+					<Control type="closebutton" name="Forward"  action="submit_form" text="" width="0.5swt" next_form_name="Questionaire" sylnCrown="=ForwardSyl"/>
+				</Control>
+				<Control type="panel" name="Category_Forward_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 = @2 AND @3 != @4"  ref_arg="//Root/Category_Type,//Root/Category_Forward_Type,//Root/Category_Id,//Root/Category_Forward_Id" > 
+					<Control type="closebutton" name="Forward"  action="submit_form" text="" width="0.5swt"  sylnCrown="=TypeFinishSyl"/>
+				</Control>
+			</Control>
+			
+			<Control type="panel" name="Forward_A_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'false'" ref_arg="//Root/AnswerValidator" >
+				<Control type="label" name="FinishAction" label="FinishAction" visible="false" submit="false" reference="=@1@2@3" ref_arg="../Finish1/Finish1&lt;0&gt;/FinishAction,../Finish2/Finish2&lt;0&gt;/FinishAction,../Finish3/Finish3&lt;0&gt;/FinishAction" sylnCrown="=HiddenSyl" />
+				<Control type="panel" name="Finish1" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = @2 AND @3 != @4 AND @1 != 'Sleep Diary'"  ref_arg="//Root/Category_Type,//Root/Category_Forward_Type,//Root/Category_Id,//Root/Category_Forward_Id" > 
+					<Control type="actionbutton" name="FinishAction" data_type='int' width="0.5swt" sylnCrown="=TypeFinishSyl" value_reference='SELECT 1' />
+				</Control>
+				<Control type="panel" name="Finish2" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = @2 AND @3 = @4 AND @1 != 'Sleep Diary'"  ref_arg="//Root/Category_Type,//Root/Category_Forward_Type,//Root/Category_Id,//Root/Category_Forward_Id" >
+					<Control type="actionbutton" name="FinishAction" data_type='int' width="0.5swt" sylnCrown="=ForwardSyl" value_reference='SELECT 1' />
+				</Control>
+				<Control type="panel" name="Finish3" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'Sleep Diary' " ref_arg="//Root/Category_Type" >
+					<Control type="actionbutton" name="FinishAction" data_type='int' width="0.5swt" sylnCrown="=ForwardSyl" value_reference='SELECT 1' />
+				</Control>
+			</Control>
+		<!-- end of forward submit buttons AND forward action button-->
+
+		
+		
+		
+		<!-- Finish submit buttons AND finish action button-->
+			<Control type="panel" name="Finish_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'true'" ref_arg="//Root/AnswerValidator" >
+				<Control type="panel" name="Finish_OneTime_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 != @2 AND @1 = 'One Time'" ref_arg="//Root/Category_Type,//Root/Category_Forward_Type" >
+					<Control type="closebutton" name="Finish_OneTime" action="submit_form" text="" width="0.5swt" sylnCrown="=TypeFinishSyl"/>
+				</Control>
+				<Control type="panel" name="Finish_SleepDiary_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 != @2 AND @1 = 'Sleep Diary' " ref_arg="//Root/Category_Type,//Root/Category_Forward_Type" >
+					<Control type="closebutton" name="Finish_SleepDiary" action="submit_form" text="" width="0.5swt" next_form_name="Questionaire" sylnCrown="=ForwardSyl"/>
+				</Control>
+				<Control type="panel" name="Finish_VAS_P" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 != @2 AND @1 = 'VAS' " ref_arg="//Root/Category_Type,//Root/Category_Forward_Type" >
+					<Control type="closebutton" name="Finish_VAS" action="submit_form" text="" width="0.5swt"  sylnCrown="=TypeFinishSyl2"/>
+				</Control>
+			</Control>
+			
+			<Control type="panel" name="Finish_A_P" layout="standard" navigation="inline" generator="SELECT '1' WHERE @1 = 'false'" ref_arg="//Root/AnswerValidator" >
+				<Control type="panel" name="Finish" layout="standard" navigation="inline"  generator="SELECT '1' WHERE @1 != @2 AND (@1 = 'One Time' OR @1 = 'VAS')" ref_arg="//Root/Category_Type,//Root/Category_Forward_Type" >
+					<Control type="actionbutton" name="FinishAction" data_type='int' width="0.5swt" sylnCrown="=TypeFinishSyl" value_reference='SELECT 1' />
+				</Control>
+			</Control>
+		<!-- end of Finish submit buttons AND finish action button-->
+		
+		</Control>
+		
+			<!--<Control type="label" name="Percent" label="" text="" width="0.2swt" reference="SELECT @1 || ' %'  " ref_arg="//Root/Category_Count_Percent" />-->
+			<Control type="panel" name="SleepVASAnswerCounter" width="1swt" layout="table" navigation="inline" headless="true" generator="SELECT '1' WHERE @1 = 31 " ref_arg="//Root/User_status" >
+				<Control type="label" name="ProgressBar" width="0.76swt" sylnCrown="SELECT CASE WHEN @1 BETWEEN 0 AND 4 THEN 'PB00Syl' WHEN @1 BETWEEN 5 AND 9 THEN 'PB05Syl' WHEN @1 BETWEEN 10 AND 14 THEN 'PB10Syl' WHEN @1 BETWEEN 15 AND 19 THEN 'PB15Syl' WHEN @1 BETWEEN 20 AND 24 THEN 'PB20Syl' WHEN @1 BETWEEN 25 AND 29 THEN 'PB25Syl' WHEN @1 BETWEEN 30 AND 34 THEN 'PB30Syl' WHEN @1 BETWEEN 35 AND 39 THEN 'PB35Syl' WHEN @1 BETWEEN 40 AND 44 THEN 'PB40Syl' WHEN @1 BETWEEN 45 AND 49 THEN 'PB45Syl' WHEN @1 BETWEEN 50 AND 54 THEN 'PB50Syl' WHEN @1 BETWEEN 55 AND 59 THEN 'PB55Syl' WHEN @1 BETWEEN 60 AND 64 THEN 'PB60Syl' WHEN @1 BETWEEN 65 AND 69 THEN 'PB65Syl' WHEN @1 BETWEEN 70 AND 74 THEN 'PB70Syl' WHEN @1 BETWEEN 75 AND 79 THEN 'PB75Syl' WHEN @1 BETWEEN 80 AND 84 THEN 'PB80Syl' WHEN @1 BETWEEN 85 AND 89 THEN 'PB85Syl' WHEN @1 BETWEEN 90 AND 94  THEN 'PB90Syl' WHEN @1 BETWEEN 95 AND 98  THEN 'PB95Syl' WHEN @1 BETWEEN 99 AND 100  THEN 'PB100Syl' ELSE 'PB00Syl' END" sylnargCrown="//Root/Category_Count_SleepVAS_Percent" />
+				<Control type="label" name="AnswerCounter" width="0.24swt" reference="SELECT @1 || '/' || @2  " ref_arg="//Root/VAS_Sleep_Question_Count,//Root/VAS_SleepDiary_Count" />
+			</Control>
+			<Control type="panel" name="GotToSleepVasAnswerCounter" width="1swt" layout="table" navigation="inline" headless="true" generator="SELECT '1' WHERE @1 = 40" ref_arg="//Root/User_status" >
+				<Control type="label" name="ProgressBar" width="0.76swt" sylnCrown="SELECT CASE WHEN @1 BETWEEN 0 AND 4 THEN 'PB00Syl' WHEN @1 BETWEEN 5 AND 9 THEN 'PB05Syl' WHEN @1 BETWEEN 10 AND 14 THEN 'PB10Syl' WHEN @1 BETWEEN 15 AND 19 THEN 'PB15Syl' WHEN @1 BETWEEN 20 AND 24 THEN 'PB20Syl' WHEN @1 BETWEEN 25 AND 29 THEN 'PB25Syl' WHEN @1 BETWEEN 30 AND 34 THEN 'PB30Syl' WHEN @1 BETWEEN 35 AND 39 THEN 'PB35Syl' WHEN @1 BETWEEN 40 AND 44 THEN 'PB40Syl' WHEN @1 BETWEEN 45 AND 49 THEN 'PB45Syl' WHEN @1 BETWEEN 50 AND 54 THEN 'PB50Syl' WHEN @1 BETWEEN 55 AND 59 THEN 'PB55Syl' WHEN @1 BETWEEN 60 AND 64 THEN 'PB60Syl' WHEN @1 BETWEEN 65 AND 69 THEN 'PB65Syl' WHEN @1 BETWEEN 70 AND 74 THEN 'PB70Syl' WHEN @1 BETWEEN 75 AND 79 THEN 'PB75Syl' WHEN @1 BETWEEN 80 AND 84 THEN 'PB80Syl' WHEN @1 BETWEEN 85 AND 89 THEN 'PB85Syl' WHEN @1 BETWEEN 90 AND 94  THEN 'PB90Syl' WHEN @1 BETWEEN 95 AND 98  THEN 'PB95Syl' WHEN @1 BETWEEN 99 AND 100  THEN 'PB100Syl' ELSE 'PB00Syl' END" sylnargCrown="//Root/Category_Count_GoToSleepVAS_Percent" />
+				<Control type="label" name="AnswerCounterBasic" label="" text="" width="0.24swt" reference="SELECT (@1 - 1) || '/' || @2  " ref_arg="//Root/Question_Count,//Root/VAS_GoToSleep_Count" />
+			</Control>
+			<Control type="panel" name="BasicAnswerCounter" width="1swt" layout="table" navigation="inline" headless="true" generator="SELECT '1' WHERE @1 != 31 AND @1 != 40 " ref_arg="//Root/User_status" >
+				<Control type="label" name="ProgressBar" width="0.76swt" sylnCrown="SELECT CASE WHEN @1 BETWEEN 0 AND 4 THEN 'PB00Syl' WHEN @1 BETWEEN 5 AND 9 THEN 'PB05Syl' WHEN @1 BETWEEN 10 AND 14 THEN 'PB10Syl' WHEN @1 BETWEEN 15 AND 19 THEN 'PB15Syl' WHEN @1 BETWEEN 20 AND 24 THEN 'PB20Syl' WHEN @1 BETWEEN 25 AND 29 THEN 'PB25Syl' WHEN @1 BETWEEN 30 AND 34 THEN 'PB30Syl' WHEN @1 BETWEEN 35 AND 39 THEN 'PB35Syl' WHEN @1 BETWEEN 40 AND 44 THEN 'PB40Syl' WHEN @1 BETWEEN 45 AND 49 THEN 'PB45Syl' WHEN @1 BETWEEN 50 AND 54 THEN 'PB50Syl' WHEN @1 BETWEEN 55 AND 59 THEN 'PB55Syl' WHEN @1 BETWEEN 60 AND 64 THEN 'PB60Syl' WHEN @1 BETWEEN 65 AND 69 THEN 'PB65Syl' WHEN @1 BETWEEN 70 AND 74 THEN 'PB70Syl' WHEN @1 BETWEEN 75 AND 79 THEN 'PB75Syl' WHEN @1 BETWEEN 80 AND 84 THEN 'PB80Syl' WHEN @1 BETWEEN 85 AND 89 THEN 'PB85Syl' WHEN @1 BETWEEN 90 AND 94  THEN 'PB90Syl' WHEN @1 BETWEEN 95 AND 98  THEN 'PB95Syl' WHEN @1 BETWEEN 99 AND 100  THEN 'PB100Syl' ELSE 'PB00Syl' END" sylnargCrown="//Root/Category_Count_Percent" />
+				<Control type="label" name="AnswerCounterBasic" label="" text="" width="0.24swt" reference="SELECT @1 || '/' || @2  " ref_arg="//Root/Question_Count,//Root/Category_Count" />
+			</Control>
+	</Control>
+</Form>

@@ -1,0 +1,7 @@
+<Reftab Name="problemakor" xmlns="http://schemas.mobilengine.com/reftab/v1" >
+	<Columns>
+        <Column Name="id" Type="Integer" NotNull="true" PrimaryKey="true"/>
+        <Column Name="problemakor" Type="Text" NotNull="false"/>
+        <Column Name="szint" Type="Integer" NotNull="false"/>
+        </Columns>
+</Reftab>

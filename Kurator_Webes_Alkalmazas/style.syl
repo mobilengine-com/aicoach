@@ -1,0 +1,635 @@
+styles{  
+    style default {
+		frame {
+			backgroundColor = fafbfc
+		}
+		navigation {
+			backgroundColor = 03032b
+			title {
+                    bold=false
+					textAlign =left
+					fontColor = f7f7fa
+					fontSize = 22px
+			}
+			padding{
+					top = 20px
+					bottom = 20px
+					right = 0px
+					left = 25px		
+			}
+			margin{
+					top = 0px
+					bottom = 0px
+					right = 0px
+					left = 0px		
+			}
+		}
+        discardbutton{
+     	     fontColor = f7f7fa
+		    fontSize = 14px
+			bold = true
+			textAlign = center
+			margin {
+						 bottom = 0px
+						 left = 0px
+						 right = 15px	
+						 top = 0px
+					}
+            padding {
+						 bottom = 3px
+						 left = 5px
+						 right = 5px	
+						 top = 3px
+					}
+
+            control{
+						width = 150px
+						iconWidth = 50px
+					}       
+			label{
+						width = 150px	
+				 }
+			button{
+            	        width = 150px
+                	    borderWidth {bottom = 2px left = 1px right = 2px top = 1px }
+						backgroundColor = 7f827f
+				 }
+        }
+        submitbutton{
+        	         fontColor = f7f7fa
+				     fontSize = 14px
+			    	 bold = true
+			   		 textAlign = center
+	        	     margin {
+							 bottom = 0px
+							 left = 0px
+							 right = 15px	
+							 top = 0px
+					}
+        		    padding {
+							 bottom = 3px
+							 left = 5px
+							 right = 5px	
+						 	 top = 3px
+					}
+            	    control{
+							width = 150px
+							iconWidth = 50px
+					}       
+					label{
+							width = 150px
+					}
+					button{
+                    		width = 150px
+                    		borderWidth {bottom = 2px left = 1px right = 2px top = 1px }
+							backgroundColor = 4dc44d
+					}
+        }
+		
+	}
+    style debug{
+        	         chapter{
+            				backgroundColor = fc9a65
+							title {
+									textAlign =  left
+									fontSize = 16px
+									fontColor = 01141a
+									bold = false
+									italic = false
+									underline = false
+									strikethrough = false
+							borderWidth {
+									bottom = 0px
+									left = 0px
+									right = 0px
+									top = 0px
+								}
+							margin {
+									bottom = 0px
+									left = 10px
+									right = 0px
+									top = 0px
+								}
+						}
+      				}
+    }
+    style segmBut{
+     			   segmentedbutton{ 
+			     			fontSize = 11px
+			     			bold = false
+			     			textAlign = center
+                  			tintColor = 7f827f
+                  			selectedSegment{
+                 				   		fontColor = f7f7fa  
+                  			}
+	             			margin {
+						 				bottom = 0px
+						 				left = 0px
+						 				right = 0px	
+						 				top = 0px
+							}
+      				}
+    }
+    style foCim {
+					chapter{
+							backgroundColor = fafbfc
+							control {
+									width = auto
+									margin {
+										bottom = 0px
+										left = 0px
+										right = 0px
+										top = 0px
+									}
+								}
+								margin {
+										bottom = 0px
+										left = 0px
+										right = 0px
+										top = 0px
+									}
+								padding {
+										bottom = 15px
+										left = 0px
+										right = 0px
+										top = 0px
+									}
+								title {
+										textAlign =  left
+										fontSize = 20px
+										fontColor = 01141a
+										bold = true 
+										italic = false
+										underline = false
+										strikethrough = false
+										borderWidth {
+												bottom = 1px
+												left = 0px
+												right = 0px
+												top = 0px
+											}
+										padding {
+												bottom = 5px
+												left = 10px
+												right = 0px
+												top = 10px
+										}
+										margin {
+												bottom = 0px
+												left = 15px
+												right = 0px
+												top = 10px
+										}
+									}		
+						}
+	}
+	style foCim02 {
+						chapter{	
+								backgroundColor = fafbfc
+								control {
+										width = auto
+										margin {
+												bottom = 0px
+												left = 0px
+												right = 0px
+												top = 0px
+										}
+										}
+								margin {
+										bottom = 0px
+										left = 0px
+										right = 0px
+										top = 0px
+									}
+								padding {
+										bottom = 15px
+										left = 0px
+										right = 0px
+										top = 0px
+									}
+								title {
+										textAlign =  left
+										fontSize = 20px
+										fontColor = 01141a
+										bold = true 
+										italic = false
+										underline = false
+										strikethrough = false
+								borderWidth {
+										bottom = 1px
+										left = 0px
+										right = 0px
+										top = 0px
+									}
+								padding {
+										bottom = 5px
+										left = 10px
+										right = 0px
+										top = 10px
+								}
+								margin {
+										bottom = 0px
+										left = 15px
+										right = 0px
+										top = 10px
+								}
+							}		
+						}
+	}
+    style cim01{
+      			  chapter{
+							control {
+									width = auto
+								}
+							margin {
+									bottom = 0px
+									left = 0px
+									right = 0px
+									top = 0px
+							}
+							padding {
+									bottom = 0px
+									left = 30px
+									right = 0px
+									top = 0px
+							}
+							title {
+									textAlign =  left
+									fontSize = 16px
+									fontColor = 01141a
+									bold = true 
+									italic = false
+									underline = false
+									strikethrough = false
+									borderWidth {
+											bottom = 0px
+											left = 0px
+											right = 0px
+											top = 0px
+										}
+									padding {
+											bottom = 10px
+											left =  0px
+											right = 0px
+											top = 10px
+									}
+								}
+						}
+    }
+   style cim02{
+    				    chapter{
+								control {
+										width = 150px
+								}
+								margin {
+										bottom = 0px
+										left = 0px
+										right = 0px
+										top = 0px
+									}
+                				padding {
+						 				bottom = 0px
+						 				left = 25px
+						 				right = 0px
+						 				top = 0px
+									}
+								title {
+										textAlign =  left
+										fontSize = 16px
+										fontColor = 01141a
+										bold = true 
+										italic = false
+										underline = false
+										strikethrough = false
+										borderWidth {
+												bottom = 0px
+												left = 0px
+												right = 0px
+												top = 0px
+										}
+										padding {
+												bottom = 0px
+												left =  0px
+												right = 0px
+												top = 0px
+										}
+								}		
+							}
+    }
+    style foHeader{
+           					row{
+               					content = foHeader
+           						}
+           					cell{
+               					content = foHeader
+           						}
+           					textview{
+								fontSize = 14 px
+								bold = true
+								}
+    }
+	style foBody{
+           					row{
+               					content = foBody
+           						}
+           					cell{
+               					content = foBody
+           						}
+           					textview{
+								fontSize = 12 px
+								bold = false
+           						}
+       			}
+    style foTabla{
+						     table{
+									columnWidth = 80px, 250px, 250px
+									control{
+											width=400px
+											borderWidth {
+														bottom = 0px
+														left = 0px
+														right = 0px
+														top = 0px
+													}
+										}
+									header = foHeader
+									body = foBody
+									margin{
+											bottom = 0px
+											left = 0px
+											right = 0px
+											top = 0px
+										}
+									label{
+											bold=true
+										}
+								}
+}
+    style table01{
+							cell{
+								content= table01
+								borderWidth {
+											bottom = 0px
+											left = 0px
+											right = 0px
+											top = 0px
+											}
+							}
+							row{
+								content=table01
+								}
+							table{
+								control{
+										width=350px
+										borderWidth {
+												bottom = 0px
+												left = 0px
+												right = 0px
+												top = 0px
+											}
+								}
+								width =fill
+								columnWidth = 100px, 100px, 150px
+								header = table01
+								body = table01
+								
+								margin{
+										bottom = 0px
+												left = 0px
+												right = 0px
+												top = 0px
+								}
+								label{
+									bold=true
+								}
+								borderWidth {
+												bottom = 0px
+												left = 0px
+												right = 0px
+												top = 0px
+											}
+						}
+
+    }
+    style areaStyle {
+    					    textarea{
+										padding {
+													bottom = 0px
+													left = 0px
+													right = 0px
+													top = 20px
+												}
+										label{
+													width = auto
+													bold = true
+													fontSize = 12 px
+													underline = false
+											}
+										control{
+													width = 180px
+										}
+								}
+    }
+	 style dropdownStyle {
+								dropdown{
+											padding {
+														bottom = 15px
+														left = 0px
+														right = 0px
+														top = 10px
+													}
+											label{
+												width = auto
+												bold = true
+												fontSize = 12 px
+												underline = false
+											}
+											control{
+												width = 180px
+											}
+								}
+    }
+    style activButton { 
+								actionbutton{
+											fontColor = f7f7fa
+								button{
+											backgroundColor=7f827f
+										}
+								}
+    }
+  style activButton02{
+							actionbutton{
+									fontColor = 0d0d0d  
+									button{
+											backgroundColor=c2f2cf
+									}
+							}
+  }
+  style textField01{
+							  all{ 
+									padding {
+											bottom = 10px
+											left = 20px
+											right = 0px
+											top = 10px
+											}
+									label{
+											width = 350px
+											bold = true
+											fontSize = 12 px
+											underline = false
+											padding {
+														bottom = 5px
+														left = 0px
+														right = 0px
+														top = 0px
+													}
+										}
+									control{
+											width = 550px
+										}
+	  							}
+								textbox{
+	 	 							label{
+			  								position=top
+	  									}
+	  								}
+	  							textarea{
+		  							label{
+			  								position=top
+	  								}
+	  							}
+  		}
+  style muveletMezo{
+	  							all{
+									padding {
+												bottom = 0px
+												left = 20px
+												right = 0px
+												top = 10px
+												}
+										label{
+											width = 150px
+											bold = true
+											fontSize = 12 px
+											underline = false				
+											}
+										control{
+											width = 180px
+										}
+	 							 }
+	  							dropdown{	   
+									}
+	 							 checkbox{
+	  								}
+	 							 datepicker{
+		 									 control{
+			   										iconPosition = right
+			  									}
+	  
+	  										}
+	 
+									textbox{
+										}
+									segmentedbutton{ 
+											fontSize = 11px
+											bold = false
+											textAlign = center
+											tintColor = 7f827f
+											selectedSegment{
+														fontColor = f7f7fa  
+											}
+											margin {
+														bottom = 0px
+														left = 0px
+														right = 0px	
+														top = 0px
+											}
+    								    }
+									textview{
+												bold = true
+											}
+  }
+  style fileUpLoad01{
+									fileupload{
+												padding{
+														bottom = 15px
+														left = 20px
+														right = 0px	
+														top = 10px
+												}
+												label{
+													width=150px
+													bold = true
+													padding{
+														bottom = 0px
+														left = 0px
+														right = 0px	
+														top = 20px
+													}
+												}
+											control{
+													iconPosition = right
+													width=auto
+												}
+											button{	
+													backgroundColor= fafbfc
+													borderWidth {
+																	bottom = 0px
+																	left = 0px
+																	right = 0px
+																	top = 0px
+																					}
+													}
+											}
+  }
+  style cimzettTextbox{
+											all{
+												padding {
+															bottom = 0px
+															left = 15px
+															right = 0px
+															top = 10px
+														}
+												label{
+															width = 150px
+															bold = true
+															fontSize = 12 px
+															underline = false
+												}
+												control{
+															width = 180px
+												}
+											}
+											textbox{
+
+											}
+  }
+  style addRemoveIcon{
+											all{
+												button {
+														backgroundColor= fafbfc
+														borderWidth {
+																		bottom = 0px
+																		left = 0px
+																		right = 0px
+																		top = 0px
+																	}
+														}
+											}
+											addbutton{
+														
+														bold=true
+														
+														padding{
+															bottom = 0px
+															/*left = 357px*/
+															left = 	150px
+															right = 0px	
+															top = 5px
+														}
+											}
+											removebutton{
+											}
+										}
+}

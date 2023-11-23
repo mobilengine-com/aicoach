@@ -1,0 +1,14 @@
+<biconf xmlns="http://schemas.mobilengine.com/biconf/v1">
+	<dashboard id="FaradtsagElemzes"
+			   periscopeId="1042803"
+               menuName="Fáradtság elemzés">
+		<filter name="user_id_filter" visible="true"/>
+		<filter name="uzem_filter" visible="true"/>
+		<filter name="daterange" visible="true"/>
+		<drilldown periscopeId="1042823">
+			<filter name="user_id_filter" visible="true"/>
+			<filter name="uzem_filter" visible="true"/>
+			<filter name="daterange" visible="true"/>
+		</drilldown>
+	</dashboard>
+</biconf>

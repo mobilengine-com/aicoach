@@ -1,0 +1,31 @@
+﻿<Form name="hv_sleep1" description="Mobilengine" ksubmit="nobutton" hidden="true" typed="true" dateformat='(dtf MM"-"dd"-"yyyy" "HH":"mm":"ss)' numberformat='{decimalSeparator:"."}' >
+	<Rgsyl>
+		<Syl syln="RootSyl" clrBg="#ffffff" />
+		<Syl syln="HRSyl" clrBg="#000000" duPaddingTop="1px" />
+		<Syl syln="HiddenSyl" clrBg="#000000" clrFont="#ffffff" fBold="true" />
+		<Syl syln="MessageLabelSyl" pctFontSize="150" halign="center" fBold="true"  />
+		<Syl syln='sleepButton' iconValue='sleep' duIconWidthValue='290dp' duIconHeightValue='80dp' halign='center' buttonStyle='flat' />
+		<Syl syln='napButton' iconValue='nap' duIconWidthValue='290dp' duIconHeightValue='80dp' halign='center' buttonStyle='flat' />
+		<Syl syln='cancelButton' iconValue='cancel' duIconWidthValue='290dp' duIconHeightValue='80dp' halign='center' buttonStyle='flat' />
+	</Rgsyl>
+	<Control type="panel" name="Root" sylnChild="=RootSyl">
+	<!-- system data -->
+		<Control type="label" name="Sys_Form_Ver" label="SysFormVer" text="1" sylnCrown="=HiddenSyl" visible="false" />
+		<Control type="label" name="Sys_User" label="SysUser" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @user" />
+		<Control type="label" name="Sys_Date" data_type="datetime" label="SysDate:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @dtlNow" />
+	<!-- end of system data -->
+	
+	<!-- solution data -->
+		<Control type="label" name="SubjectID" label="SubjectID" sylnCrown="=HiddenSyl" visible="false" reference="SELECT subject_id FROM Reference_hv_user WHERE usr = @user AND status_id &lt; 60" />
+	<!-- end of solution data -->
+	
+		<Control type="label" name="msgText" sylnCrown="=MessageLabelSyl" text="Are you taking a nap or going to sleep for the night?" submit="false" />
+		<Control type="label" name="BR1" submit="false" />
+		<Control type="closebutton" name="sleep" sylnCrown="=sleepButton" action="discard_form" next_form_name="hv_sleep2" />
+		<Control type="closebutton" name="nap" sylnCrown="=napButton" action="discard_form" next_form_name="hv_sleep2" />
+		<Control type="label" name="BR3" submit="false" />
+		<Control type="label" name="BR4" submit="false" />
+		<Control type="closebutton" name="cancel" sylnCrown="=cancelButton" action="submit_form" />
+		
+	</Control>
+</Form>

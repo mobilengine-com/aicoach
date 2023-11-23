@@ -1,0 +1,9 @@
+<!--Feleszerelések és Leszerelések adatok archive-->
+<Reftab Name="ti_naptar" xmlns="http://schemas.mobilengine.com/reftab/v1" NullOnDelete="true" Access="Hidden">
+	<Columns>
+		<Column Name="datum" Type="Date" NotNull="true" PrimaryKey="true" /> 
+		<Column Name="het_sorszam" Type="Integer" NotNull="true" Indexed="true" /> 
+		<Column Name="het_napja" Type="Text" NotNull="true" Indexed="true" /> 
+		<Column Name="nap_megnevezes" Type="Text" NotNull="true" Indexed="true" /> 
+	</Columns>
+</Reftab>

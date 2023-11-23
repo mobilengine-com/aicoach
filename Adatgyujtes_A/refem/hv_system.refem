@@ -1,0 +1,6 @@
+<Reftab Name="hv_system" SyncNullAsEmptyString="true" Access="Hidden" xmlns="http://schemas.mobilengine.com/reftab/v1">
+	<Columns>
+		<Column Name="name" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="value" Type="Text" NotNull="true" />
+	</Columns>
+</Reftab>

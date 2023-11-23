@@ -1,0 +1,100 @@
+<form id='ku_fel_muveletek_web'
+      platforms='web'
+      menuName='Műveletek'
+      title='Kurátori felület - Műveletek'
+      xmlns='http://schemas.mobilengine.com/fls/v2'
+      style='{styles.default}'
+	  dashboard='true'
+      >
+      <declarations>
+            <let id='isProduction' shape='scalar' value='{true}'/>
+      </declarations>
+      <header>
+            <discardbutton text='Mégsem'
+                           confirm='{false}'
+                           nextForm='{forms.ku_fel_muveletek_web}'
+                             />
+            <if cond='{changed}'>
+                  <submitbutton text='Mentés'
+                                nextForm='{forms.ku_fel_muveletek_web}'
+                                closeForm='{true}'
+                                />  
+            </if>
+      </header>
+      <if cond='{isProduction == false}'>
+            <chapter title='Teszt verzió' style='{styles.debug}'/>
+      </if>
+      <chapter title='Műveletek végrehajtása' style='{styles.foCim02}'>
+            <textview text='Probléma előfordulása' style='{styles.muveletMezo}'/>
+            <segmentedbutton id='sgmUzemiVagyEgyeni'
+                             style='{styles.muveletMezo}'
+                             keyMap='{key}'
+                             textMap='{value}'
+                             choices='{SELECT 1 key, "Üzemi szint" value UNION 
+                             SELECT 2 key,  "Egyéni szint"  value }'
+                             selectedKey='{1}'
+                             />
+            <!-- A "kiválasztás" felirat -1 key-t kap, hogy később könnyen el lehessen különíteni a valódi választott értékektől-->
+            <dropdown label='Problémakör'
+                      keyMap='{key}'
+                      textMap='{value}'
+                      style='{styles.muveletMezo}'
+                      choices='{SELECT prob.id key, prob.problemakor value
+                                FROM problemakor prob
+                                WHERE prob.szint = sgmUzemiVagyEgyeni.selectedKey
+                                UNION SELECT -1 key, "Kiválasztás" value 
+                        }'
+                        selectedKey='{-1}'
+                                />
+            <!-- A kiválasztás felirat -1 key-t kap, hogy később könnyen el lehessen különíteni a valódi választott értékektől-->
+             <dropdown label='Üzem kiválasztása'
+                      keyMap='{key}'
+                      textMap='{value}'
+                      style='{styles.muveletMezo}'
+                      choices='{SELECT DISTINCT uzem.id key, uzem.uzem_neve value FROM uzem uzem 
+                        UNION SELECT -1 key, "Kiválasztás" value }'
+                        selectedKey='{-1}'
+                        />
+            <checkbox label='Priorítást élvez?' style='{styles.muveletMezo}'/>
+           <datepicker id='dpHatarIdo'
+                        label='Határidő'
+                        dateFormat='(dtf yyyy "-" MM "-" dd)'
+                        linkIcon='{icons.calendar}'
+                        style='{styles.muveletMezo}'
+                        >
+                  <validation>
+                        <validator cond='{dpHatarIdo.date IS NOT NULL  }'
+                                message='Kötelező határidőt választania.'            
+                        />
+                  </validation>
+            </datepicker>
+             <textbox label='Tárgy' id='targy' style='{styles.textField01}'/>
+            <textarea label="Észlelt probléma/megfigyelés" id='szoveg'  style='{styles.textField01}' lines='15'/>
+            <!--fileupload id='csatolmany' acceptedMimetypes='text/plain,application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                        label='Csatolmány'
+                        text='Feltöltés'
+                        linkIcon='{icons.upload}'
+                        style='{styles.fileUpLoad01}'
+                        /-->
+            <table id='tblTovabbiCimzettek' style='{styles.table01}' record='cimzettek' recordset='{SELECT 1 a, false removeButton}'>
+                  <row>
+                        <cell>
+                              <textbox id='taCimzett' label='Címzett'  style='{styles.cimzettTextbox}'>
+                                    <validation>
+                                          <validator cond='{ taCimzett.text IS NOT NULL }'
+                                                      message='Kötelező címzettet megadnia.'            
+                                                    />
+                                          <validator cond='{taCimzett.text LIKE "_%@__%.__%"}' message='Kérem, használjon helyes email cím formátumot'/>
+                                          </validation>
+                              </textbox>
+                        </cell>
+                        <cell>
+                              <if cond='{cimzettek.removeButton ==true}'>
+                                     <removebutton text='' style='{styles.addRemoveIcon}' linkIcon='{icons.remove}'/>
+                              </if>
+                        </cell>
+                  </row>
+            </table>
+            <addbutton id='adbtnTovabbiCimzettek' records='{SELECT 1 a, true removeButton }' table='tblTovabbiCimzettek' text='Címzett' linkIcon='{icons.add}' style='{styles.addRemoveIcon}'/>
+</chapter>
+</form>

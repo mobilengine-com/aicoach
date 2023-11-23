@@ -1,0 +1,6 @@
+<Reftab Name="hv_next_form_temp" SyncNullAsEmptyString="true" Access="Hidden" xmlns="http://schemas.mobilengine.com/reftab/v1">
+	<Columns>
+		<Column Name="usr" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="question_id" Type="Integer" NotNull="true" />
+	</Columns>
+</Reftab>

@@ -1,0 +1,141 @@
+﻿<Form name="hv_dashboard" description="Mobilengine" ksubmit="nobutton" sec_auto_close="600" autoform="true" typed="true" dateformat='(dtf MM"-"dd"-"yyyy" "HH":"mm":"ss)' numberformat='{decimalSeparator:"."}' >
+	<Rgsyl>
+		<Syl syln="RootSyl" clrBg="#ffffff" />
+		<Syl syln="HRSyl" clrBg="#000000" duPaddingTop="1px" />
+		<Syl syln="HiddenSyl" clrBg="#000000" clrFont="#ffffff" fBold="true" />
+		<Syl syln="AdminSyl" pctFontSize="110" duPaddingLeft="45dp" duPaddingRight="45dp"  />
+		<Syl syln="MessageLabelSyl" pctFontSize="150" halign="center" fBold="true"  />
+		<Syl syln='forwardButton' iconValue='forward_green' duIconWidthValue='90dp' duIconHeightValue='90dp' halign='center' buttonStyle='flat'/>
+		<Syl syln='goingToSleepButton' iconValue='going_to_sleep' duIconWidthValue='290dp' duIconHeightValue='75dp' halign='center' buttonStyle='flat'/>
+		<Syl syln='vasButton' iconValue='vas' duIconWidthValue='290dp' duIconHeightValue='75dp' halign='center' buttonStyle='flat'/>
+		<Syl syln='wokeUpButton' iconValue='woke_up' duIconWidthValue='290dp' duIconHeightValue='75dp' halign='center' buttonStyle='flat'/>
+		<Syl syln='adminButton' fUnderline='true' halign='center' buttonStyle='flat'/>
+	</Rgsyl>
+	<Control type="panel" name="Root" sylnChild="=RootSyl">
+	<!-- system data -->
+		<Control type="label" name="EnableReminderPluginFormOpenRun" label="EnableReminderPluginFormOpenRun" text="true" sylnCrown="=HiddenSyl" visible="false" submit="false" />
+		<Control type="label" name="Sys_Form_Ver" label="SysFormVer" text="1" sylnCrown="=HiddenSyl" visible="false" />
+		<Control type="label" name="Sys_User" label="SysUser" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @user" />
+		<Control type="label" name="Sys_Date" data_type="datetime" label="SysDate:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @dtlNow" />
+	<!-- end of system data -->
+	
+	<!-- solution data -->
+		<Control type="label" name="AdminPassword" label="AdminPassword" sylnCrown="=HiddenSyl" visible="false" reference="SELECT value FROM Reference_hv_system WHERE name = 'admin_password'" submit="false" />
+		<Control type="label" name="SubjectID" label="SubjectID" sylnCrown="=HiddenSyl" visible="false" reference="SELECT subject_id FROM Reference_hv_user WHERE usr = @user AND status_id &lt; 60" />
+		<Control type="label" name="StatusID" label="StatusID" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT status_id FROM Reference_hv_user WHERE subject_id = @1" ref_arg="//Root/SubjectID" />
+	<!-- end of solution data -->
+		
+	<!-- ADMIN screen, enter new subject id -->
+		<Control type="panel" name="EnterSubjectData" layout="standard" navigation="inline" data_type="int" generator="SELECT 1 WHERE SUBSTR(@1, 1, 7) = '__NULL_'" ref_arg="//Root/SubjectID" sylnChild="=AdminSyl" >
+			<Control type="label" name="BR1" submit="false" />
+			<Control type="label" name="MessageLabel" sylnCrown="=MessageLabelSyl" text="Please enter the Subject Code!" submit="false" />
+			<Control type="label" name="BR2" submit="false" />
+			<Control type="validator" name="SubjectIDExistValidation" data_type="int"  reference="SELECT COUNT(1) FROM Reference_hv_user WHERE subject_id = UPPER(@1)" ref_arg="../SubjectID" >
+				<Validators>
+					<Validator type="NumberValidator" message="Subject Code already exists!" min="0" max="0" wholenumber="true" />
+				</Validators>
+			</Control>
+			<Control type="textbox" name="SubjectID" hint="Subject Code e.g: 12345" size="large" >
+				<Validators>
+					<Validator type="RequiredValidator" message="Subject Code is required!" />
+					<Validator type="RegExpValidator" message="Invalid format! (e.g: 12345)" regexp="^[0-9]{5}$" />
+				</Validators>
+			</Control>
+			<Control type="label" name="BR3" submit="false" />
+			<Control type="validator" name="PasswordValidation" data_type="int" reference="SELECT CASE WHEN SUBSTR(@1,1,7) = '__NULL_' OR @1 = '' THEN 1 WHEN @1 = @2 THEN 1 ELSE 0 END" ref_arg="../AdminPassword,//Root/AdminPassword" >
+				<Validators>
+					<Validator type="NumberValidator" message="Password provided is incorrect!" min="1" max="1" wholenumber="true" />
+				</Validators>
+			</Control>
+			<Control type="textbox" name="AdminPassword" hint="Admin password" password="true" size="large" submit="false" >
+				<Validators>
+					<Validator type="RequiredValidator" message="Password is required!" />
+				</Validators>
+			</Control>
+			<Control type="label" name="BR4" submit="false" />
+			<Control type="panel" name="SubmitTable" layout="table" navigation="inline" headless="true" width="1 swt">
+				<Control type="label" name="Margin1" submit="false" width="0.25 swt" />
+				<Control type="closebutton" name="SetNewSubjectID" sylnCrown="=forwardButton" action="submit_form" width="0.5 swt" />
+				<Control type="label" name="Margin2" submit="false" width="0.25 swt" />
+			</Control>
+		</Control>
+	<!-- end of enter new subject id -->
+	
+	<!-- onetime question screen -->
+		<Control type="panel" name="OneTimeQuestions" layout="standard" navigation="inline" data_type="int" generator="SELECT 1 WHERE @1 &lt; 30" ref_arg="//Root/StatusID" >		
+			<Control type="label" name="BR1" submit="false" />
+			<Control type="label" name="BR2" submit="false" />
+			<Control type="label" name="msgText" sylnCrown="=MessageLabelSyl" reference="SELECT 'Tap to ' || CASE WHEN @1 = 10 THEN 'start' ELSE 'continue' END || ' the&#xA;questionnaire'" ref_arg="//Root/StatusID" submit="false" />
+			<Control type="label" name="BR3" submit="false" />
+			<Control type="label" name="BR4" submit="false" />
+			<Control type="panel" name="SubmitTable" layout="table" navigation="inline" headless="true" width="1 swt">
+				<Control type="label" name="Margin1" submit="false" width="0.25 swt" />
+				<Control type="closebutton" name="OpenQuestion" sylnCrown="=forwardButton" action="submit_form" next_form_name="Questionaire" width="0.5 swt" />
+				<Control type="label" name="NextQuestionID" label="NextQuestionID" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT q.question_id FROM Reference_hv_questions q LEFT JOIN Reference_hv_answer_temp at ON q.question_id = at.question_id AND at.usr = @user AND at.subject_id = @1 WHERE at.guid IS NULL AND q.type = 'One Time' ORDER BY q.question_sequence LIMIT 1" ref_arg="//Root/SubjectID" />
+			</Control>
+		</Control>
+	<!-- end of onetime question screen -->
+	
+	<!-- Going to sleep now -->
+		<Control type="panel" name="GoingToSleep" layout="standard" navigation="inline" data_type="int" generator="SELECT 1 WHERE @1 = 30" ref_arg="//Root/StatusID" >
+			<Control type="label" name="BR1" submit="false" />
+			<Control type="closebutton" name="GoingToSleep" sylnCrown="=goingToSleepButton" action="submit_form" next_form_name="hv_sleep1" />
+		</Control>
+		
+	<!-- I just woke up -->
+		<Control type="panel" name="WokeUp" layout="standard" navigation="inline" data_type="int" generator="SELECT 1 WHERE @1 = 40 OR @1 = 31" ref_arg="//Root/StatusID" >
+			<Control type="label" name="BR1" submit="false" />
+			<Control type="closebutton" name="OpenSleepDiary" sylnCrown="=wokeUpButton" action="submit_form" next_form_name="Questionaire" />
+			<Control type="label" name="NextQuestionID" label="NextQuestionID" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT q.question_id FROM Reference_hv_questions q LEFT JOIN Reference_hv_answer_temp at ON q.question_id = at.question_id AND at.usr = @user AND at.subject_id = @1 WHERE at.guid IS NULL AND q.type = 'Sleep Diary' ORDER BY q.question_sequence LIMIT 1" ref_arg="//Root/SubjectID" />
+			<!-- Autómatikusan tölti a rendszer, ennek a kérdésnek az id-ját csak akkor változtasd ha a question táblában is átírtad!! -->
+			<Control type="label" name="AutomaticallyFillQuestionID" label="AutomaticallyFillQuestionID" sylnCrown="=HiddenSyl" visible="false" text="9001" />
+			<Control type="label" name="AutomaticallyFillGuid" label="AutomaticallyFillGuid" sylnCrown="=HiddenSyl" visible="false" reference="GUID" />
+		</Control>
+		
+	<!-- VAS -->
+		<Control type="panel" name="Vas" layout="standard" navigation="inline" data_type="int" generator="SELECT alarm_id FROM Reference_alarms WHERE @dtlNow BETWEEN alarm_start AND alarm_finish AND @1 = 30 AND user = @user " ref_arg="//Root/StatusID" >
+			<Control type="label" name="BR1" submit="false" />
+			<Control type="closebutton" name="OpenVas" sylnCrown="=vasButton" action="submit_form" next_form_name="Questionaire" width="0.5 swt" />
+			<Control type="label" name="NextQuestionID" label="NextQuestionID" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT q.question_id FROM Reference_hv_questions q LEFT JOIN Reference_hv_answer_temp at ON q.question_id = at.question_id AND at.usr = @user AND at.subject_id = @1 WHERE at.guid IS NULL AND q.type = 'VAS' ORDER BY q.question_sequence LIMIT 1" ref_arg="//Root/SubjectID" />
+		</Control>
+		
+	<!-- finish screen -->
+		<Control type="panel" name="Finish" layout="standard" navigation="inline" data_type="int" generator="SELECT 1 WHERE @1 = 50" ref_arg="//Root/StatusID" >
+			<Control type="label" name="BR1" submit="false" />
+			<Control type="label" name="msgText" sylnCrown="=MessageLabelSyl" text="You answered every question.&#xA;Thank you for your participation in this project.&#xA;&#xA;Please don`t forget to put this cell phone along with the MotionLogger watch in the FedEx box provided to you." submit="false" />
+			<Control type="label" name="BR2" submit="false" />
+			<Control type="label" name="BR3" submit="false" />
+			<Control type="label" name="BR4" submit="false" />
+			<Control type="label" name="BR5" submit="false" />
+			<Control type="label" name="BR6" submit="false" />
+			<Control type="label" name="BR7" submit="false" />
+			<Control type="label" name="BR8" submit="false" />
+			<Control type="label" name="BR9" submit="false" />
+			<Control type="label" name="BR10" submit="false" />
+			<Control type="panel" name="HR" layout="table" navigation="inline" sylnCrown="=HRSyl" headless="true" />
+			<Control type="validator" name="PasswordValidation" data_type="int" reference="SELECT CASE WHEN SUBSTR(@1,1,7) = '__NULL_' OR @1 = '' THEN 1 WHEN @1 = @2 THEN 1 ELSE 0 END" ref_arg="../PWPanel/AdminPassword,//Root/AdminPassword" >
+				<Validators>
+					<Validator type="NumberValidator" message="Password provided is incorrect!" min="1" max="1" wholenumber="true" />
+				</Validators>
+			</Control>
+			<Control type="validator" name="RequiredValidator" data_type="int" reference="SELECT CASE WHEN SUBSTR(@1,1,7) = '__NULL_' OR @1 = '' THEN 0 ELSE 1 END" ref_arg="../PWPanel/AdminPassword" >
+				<Validators>
+					<Validator type="NumberValidator" message="Password is required!" min="1" max="1" wholenumber="true" />
+				</Validators>
+			</Control>
+			<Control type="panel" name="PWPanel" layout="table" navigation="inline" width="1swt" headless="true" >
+				<Control type="textbox" name="AdminPassword" hint="Admin password" password="true" size="large" submit="false" width="0.4swt" />
+				<Control type="closebutton" name="AdminLogin" sylnCrown="=adminButton" text="Log in as Admin" action="submit_form" width="0.6swt" />
+			</Control>
+		</Control>
+	<!-- end of finish screen -->
+	
+		<Control type="panel" name="MissingVas" layout="standard" navigation="inline" data_type="int,datetime,datetime" generator="SELECT alarm_id, alarm_start, alarm_finish FROM Reference_alarms WHERE user = @user AND @dtlNow > alarm_finish" >
+			<Control type="label" name="guid" label="guid" sylnCrown="=HiddenSyl" visible="false" reference="GUID" />
+			<Control type="label" name="alarm_id" label="alarm_id" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT @1" ref_arg="PARENT.col0" />
+			<Control type="label" name="alarm_start" label="alarm_start" sylnCrown="=HiddenSyl" visible="false" data_type="datetime" dateformat='(dtf yyyy"-"MM"-"dd" "HH":"mm":"ss)' reference="SELECT @1" ref_arg="PARENT.col1" />
+			<Control type="label" name="alarm_finish" label="alarm_start" sylnCrown="=HiddenSyl" visible="false" data_type="datetime"  dateformat='(dtf yyyy"-"MM"-"dd" "HH":"mm":"ss)' reference="SELECT @1" ref_arg="PARENT.col2" />
+		</Control>
+	
+	</Control>
+</Form>

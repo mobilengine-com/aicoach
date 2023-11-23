@@ -1,0 +1,16 @@
+﻿<ReportDefinition xmlns="http://schemas.mobilengine.com/repmet/v1">
+  <Name>Daily Status Report</Name>
+  <Format>XLS</Format>
+  <Frequency>Daily</Frequency>
+  <FirstRunAt>2017-11-02T16:00:00</FirstRunAt>
+  <!--GenerateIfEmpty>false</GenerateIfEmpty>
+  <ColumnNameFrom>ControlName</ColumnNameFrom>
+  <ExcludeStaticLabels>false</ExcludeStaticLabels>
+  <IncludeTrackData>false</IncludeTrackData-->
+  <Email>
+    <Recipients>
+		<To/>
+    </Recipients>
+    <Subject>Daily Status Report</Subject>
+  </Email>
+</ReportDefinition>

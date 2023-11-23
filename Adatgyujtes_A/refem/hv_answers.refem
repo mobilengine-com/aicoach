@@ -1,0 +1,10 @@
+<Reftab Name="hv_answers" SyncNullAsEmptyString="true" Access="Readonly" xmlns="http://schemas.mobilengine.com/reftab/v1">
+	<Columns>
+		<Column Name="id" Type="Integer" NotNull="true" PrimaryKey="true" />
+		<Column Name="content_id" Type="Integer" NotNull="true" />
+		<Column Name="answer_key" Type="Integer" NotNull="true" />
+		<Column Name="answer" Type="Text" NotNull="true" />
+		<Column Name="is_comment" Type="Integer" NotNull="true" />
+		<Column Name="comment_label" Type="Text" />
+	</Columns>
+</Reftab>

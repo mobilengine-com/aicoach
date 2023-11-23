@@ -1,0 +1,11 @@
+<Reftab Name="hv_export" SyncNullAsEmptyString="true" Access="Readonly" xmlns="http://schemas.mobilengine.com/reftab/v1">
+	<Columns>
+		<Column Name="guid" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="subject_id" Type="Text" NotNull="true" />
+		<Column Name="question_id" Type="Integer" NotNull="true" />
+		<Column Name="answer" Type="Text"  />
+		<Column Name="other" Type="Text"  />
+		<Column Name="is_checked" Type="Integer"  />
+		<Column Name="timestamp" Type="Text"  />
+	</Columns>
+</Reftab>

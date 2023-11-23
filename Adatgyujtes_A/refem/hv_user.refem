@@ -1,0 +1,8 @@
+<Reftab Name="hv_user" SyncNullAsEmptyString="true" Access="Readonly" xmlns="http://schemas.mobilengine.com/reftab/v1">
+	<Columns>
+		<Column Name="usr" Type="Text" NotNull="true" />
+		<Column Name="subject_id" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="period_finish" Type="Date" />
+		<Column Name="status_id" Type="Integer" NotNull="true" />
+	</Columns>
+</Reftab>

@@ -1,0 +1,10 @@
+client server program hv_sleep1 for form hv_sleep1
+using reftab hv_answer_temp;
+{
+	if( form.controlSubmit.nid == "cancel" ) {
+		foreach ( var row in db.hv_answer_temp.Read({usr: form.user.name,	subject_id: form.Root.SubjectID.value}) ) 
+		{
+			db.hv_answer_temp.Delete(row);
+		}
+	}
+}

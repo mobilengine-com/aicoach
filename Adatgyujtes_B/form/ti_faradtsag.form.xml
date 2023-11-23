@@ -1,0 +1,106 @@
+<Form name="ti_faradtsag" description="Fáradtság kérdőív" title="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'ti_faradtsag_header' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" ksubmit="nobutton" hidden="true" inlineReference="true" typed="true" dateformat='(dtf yyyy"."MM"."dd" "HH":"mm":"ss)' numberformat='{decimalSeparator:".", maxFraction: 2}' sillyNulls="false" >
+	<Rgsyl>
+		<Syl syln="RootColor" clrBg="#FFFFFF" clrFont="#414753" />
+		<Syl syln="Hidden" clrBg="#E632E6" clrFont="#FFFFFF" fBold="true" />
+		<Syl syln="Cimsor" clrBg="#FFFFFF" clrFont="#414753" halign="center" fBold="true" pctFontSize="110" duMarginTop="50px" />
+		<Syl syln="Kijelentes" clrBg="#FFFFFF" clrFont="#414753" halign="center" fBold="true" pctFontSize="110" duMarginTop="150px" />
+		<Syl syln="CimsorVege" clrBg="#FFFFFF" clrFont="#414753" halign="center" fBold="true" pctFontSize="110" duMarginTop="350px" />
+		<Syl syln="Spacing" clrBg="#FFFFFF" clrFont="#414753" halign="center" fBold="true" pctFontSize="110" duMarginTop="200px" />
+		<Syl syln="NagySpacing" clrBg="#FFFFFF" clrFont="#414753" halign="center" fBold="true" pctFontSize="110" duMarginTop="450px" />
+		<Syl syln="BgFeher" clrBg="#FFFFFF" clrFont="#414753" pctFontSize="95" halign="center" duMarginTop="50px"/> 
+		<Syl syln="Hint" clrBg="#FFFFFF" clrFont="#BFBFBF" pctFontSize="40" halign="center"/> 
+		<Syl syln="KovetkezoGombKek" clrBg="#FFFFFF" halign="left" buttonStyle="flat" iconValue="next_page" duIconHeight="40dp" duIconWidth="40dp" pctFontSize="95" duIconSpacing="10dp" />
+		<Syl syln="KovetkezoGombSzurke" clrBg="#FFFFFF" halign="left" buttonStyle="flat" iconValue="next_page_szurke" duIconHeight="40dp" duIconWidth="40dp" pctFontSize="95" duIconSpacing="10dp" />
+		<Syl syln="Progress1" clrBg="#FFFFFF" halign="left" buttonStyle="flat" iconValue="progressbar_35" duIconHeight="40dp" duIconWidth="180dp" pctFontSize="95" duIconSpacing="10dp" />
+		<Syl syln="Progress2" clrBg="#FFFFFF" halign="left" buttonStyle="flat" iconValue="progressbar_65" duIconHeight="40dp" duIconWidth="180dp" pctFontSize="95" duIconSpacing="10dp" />
+		<Syl syln="Progress3" clrBg="#FFFFFF" halign="left" buttonStyle="flat" iconValue="progressbar_100" duIconHeight="40dp" duIconWidth="180dp" pctFontSize="95" duIconSpacing="10dp" />
+		<Syl syln="SzereloIcon" clrBg="#FFFFFF" halign="center" iconValue="worker_1" clrFont="#FF0000" fItalic="true" pctFontSize="95" duIconWidth="200dp" duIconHeight="200dp" duMarginTop="150px"/>
+		<Syl syln="Dotted" clrBg="#FFFFFF" clrDotSelected="#199ACC" clrFontValueSelected="#FFFFFF" clrFontValue="#FFFFFF" clrLine="#BFBFBF" clrDot="#BFBFBF" fBoldLabel="true" pctFontSizeValue="140" pctLineHeight="65" duMarginTop="150px"/>
+	</Rgsyl>
+	<Control type="panel" name="Root" sylnChild="=RootColor">
+		<!--System variables-->
+		<Control type="label" name="SysRFSver" label="sys_rfsver:" text="1" sylnCrown="=Hidden" visible="false" />
+		<Control type="label" name="SysDate" label="sys_date:" data_type="datetime" text="{SELECT @dtlNow}" sylnCrown="=Hidden" visible="false" />
+		<Control type="label" name="SysVer" label="sys_ver:" text="{SELECT @ver}" sylnCrown="=Hidden" visible="false" />
+		<Control type="label" name="SysAndroidId" label="sys_androidid:" text="{SELECT @androidId}" sylnCrown="=Hidden" visible="false" />
+		<Control type="location" name="Location" label="gps_location:" sylnCrown="=Hidden" visible="false" />
+		<Control type="label" name="guidSeged" label="guidSeged:" text="{GUID}" sylnCrown="=Hidden" visible="false" />
+		<Control type="label" name="GUID" label="GUID:" text="{SELECT IFNULL(@param1, @[//Root/guidSeged])}" sylnCrown="=Hidden" visible="false" />
+		<!--Nyelvesítéshez-->
+		<Control type="label" name="ObjectId" label="object_id:" text="ti_faradtsag" visible="false" sylnCrown="=Hidden" />
+		<Control type="label" name="UserNyelv" label="user_nyelv:" text="hu" visible="false" sylnCrown="=Hidden" />
+		
+		<Control type="label" name="NextFormName" label="NextFormName:" data_type="string" text="{SELECT CASE WHEN @param0 IN ('11','12','13','2') THEN @param2 ELSE @param0 END}" sylnCrown="=Hidden" visible="false" />
+		
+		<Control type="label" name="RendelesId" label="RendelesId:" data_type="string" text="{SELECT CASE WHEN @param0 IN ('11','12','13','2') THEN @param3 ELSE @param1 END}" sylnCrown="=Hidden" visible="false" />
+		
+		<Control type="label" name="MelyikPanel" label="Melyik Panel:" data_type="int" text="{SELECT CASE WHEN @param0 = '11' THEN 11 WHEN @param0 = '12' THEN 12 WHEN @param0 = '13' THEN 13 WHEN @param0 = '2' THEN 2 ELSE 0 END}" sylnCrown="=Hidden" visible="false" />
+		
+		<Control type="label" name="HetNapja" label="HetNapja:" data_type="int" text="{SELECT CAST(het_napja AS INT) FROM Reference_ti_naptar WHERE STRFTIME('%Y.%m.%d', datum) = STRFTIME('%Y.%m.%d', @[//Root/SysDate])}" sylnCrown="=Hidden" visible="false" />
+		<Control type="label" name="HetNapjaSeged" label="HetNapjaSeged:" data_type="int" text="{SELECT CASE WHEN @[//Root/HetNapja] = 7 THEN 3 ELSE (SELECT CASE WHEN @[//Root/HetNapja] = 1 THEN 5 ELSE @[//Root/HetNapja] END) END }" sylnCrown="=Hidden" visible="false" />
+		
+		<Control type="panel" name="UdvozloPanel" layout="standard" navigation="inline" headless="true" table_width="1swt" generator="SELECT '1' WHERE @[//Root/MelyikPanel] = 0" >
+			
+			
+			<Control type="label" text="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'udvozlo_cim' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" sylnCrown="=Cimsor"/>
+
+			<Control type="label" text="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'tajekoztatas' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" sylnCrown="=BgFeher"/>
+			
+			<Control type="label" text="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'koszonjuk_a_hozzajarulast' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" sylnCrown="=BgFeher"/>
+			
+			<Control type="label" text="" sylnCrown="=SzereloIcon"/>
+			
+			<Control type="panel" name="UdvozloAlsoButtonPanel" layout="table" navigation="inline" headless="true" table_width="1swt" >
+				<Control type="label" label="" text="" width="0.75swt" />
+				<Control type="closebutton" name="KezdokepGomb" width="remaining 1" action="submit_form" parameter="{SELECT '11',@[//Root/GUID],@[//Root/NextFormName],@[//Root/RendelesId]}" next_form_name="ti_faradtsag" sylnCrown="=KovetkezoGombKek" />
+			</Control>
+		</Control>
+		
+		<Control type="panel" name="KerdesekPanel" layout="standard" navigation="inline" headless="true" table_width="1swt" data_type="string,string,string" generator="SELECT CASE WHEN @[//Root/MelyikPanel] = 11 THEN '0' ELSE FK.id END AS id, CASE WHEN @[//Root/MelyikPanel] = 11 THEN 'alap' ELSE FK.tipus END AS tipus, CASE WHEN @[//Root/MelyikPanel] = 11 THEN NULL ELSE FK.kerdes END AS kerdes FROM Reference_ti_faradtsag_random_seged FRS LEFT JOIN Reference_ti_faradtsag_kerdesek FK ON CASE WHEN @[//Root/MelyikPanel] = 12 THEN FRS.elso_kerdes = FK.kerdes_id ELSE FRS.masodik_kerdes = FK.kerdes_id END WHERE @[//Root/MelyikPanel] IN (11,12,13) AND CASE WHEN FK.nyelv IS NULL THEN 1 = 1 ELSE FK.nyelv = @[//Root/UserNyelv] END AND FRS.usr = @user AND DATE(@[//Root/SysDate]) = DATE(FRS.melyik_nap)">
+			
+			
+			<Control type="label" name="KerdesId" data_type="string" label="Kerdes id:" text="{SELECT @[PARENT.col0]}" sylnCrown="=Hidden" visible="false" />
+			<Control type="label" name="KerdesTipus" data_type="string" label="Kerdes típus:" text="{SELECT @[PARENT.col1]}" sylnCrown="=Hidden" visible="false" />
+			<Control type="label" name="AlapKerdes" data_type="string" label="Alap kérdés:" text="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'alap_kerdes' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" sylnCrown="=Hidden" visible="false" />
+			<Control type="label" text="{SELECT COALESCE(@[PARENT.col2],@[../AlapKerdes])}" sylnCrown="=Kijelentes" />
+			
+			<Control type="label" name="KezdoLimit" data_type="int" text="{SELECT CASE WHEN @[PARENT.col2] IS NULL THEN 0 ELSE 1 END}" sylnCrown="=Hidden" visible="false" submit="false" />
+			<Control type="label" name="ZaroLimit" data_type="int" text="{SELECT CASE WHEN @[PARENT.col2] IS NULL THEN 11 ELSE 6 END}" sylnCrown="=Hidden" visible="false" submit="false" />
+			
+			<Control type="combobox" name="ValaszSkala" width="1swt" ptype="dotted" allowUnselect="false" choice="button" sylnCrown="=Dotted" size="large" data_type="int,int" choices="{SELECT ertek, ertek FROM Reference_ti_faradtsag_skala ORDER BY ertek LIMIT @[../KezdoLimit], @[../ZaroLimit]}" >
+				<Validators>
+					<Validator type="RequiredValidator" group="tovabb"/>
+				</Validators>
+			</Control>
+			
+			<Control type="panel" name="KetoldaltSzovegPanel" layout="table" navigation="inline" headless="true" table_width="1swt" >
+				<Control type="label" text="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'egyaltalan_nem' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" width="0.25swt" sylnCrown="=BgFeher"/>
+				<Control type="label" label="" text="" width="0.5swt" />
+				<Control type="label" text="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'teljesen_igaz' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" width="remaining 1" sylnCrown="=BgFeher"/>
+			</Control>
+			
+			<Control type="label" label="" text="" width="0.75swt" sylnCrown="=Spacing"/>
+			
+			<Control type="panel" name="KerdesekAlsoButtonPanel" layout="table" navigation="inline" headless="true" table_width="1swt">
+				<Control type="label" label="" text="" width="0.05swt" />
+				<Control type="label" label="" text="" width="0.55swt" sylnCrown="SELECT CASE WHEN @[//Root/MelyikPanel] = 11 THEN 'Progress1' WHEN @[//Root/MelyikPanel] = 12 THEN 'Progress2' WHEN @[//Root/MelyikPanel] = 13 THEN 'Progress3' END"/>
+				<Control type="label" text="{SELECT CASE WHEN @[//Root/MelyikPanel] = 11 THEN '1/3' WHEN @[//Root/MelyikPanel] = 12 THEN '2/3' WHEN @[//Root/MelyikPanel] = 13 THEN '3/3' END}" width="0.15swt" />
+				<Control type="closebutton" name="KerdesekGomb" width="remaining 1" action="submit_form" parameter="{SELECT (SELECT CASE WHEN @[//Root/MelyikPanel] = 11 THEN '12' WHEN @[//Root/MelyikPanel] = 12 THEN '13' WHEN @[//Root/MelyikPanel] = 13 THEN '2' END),@[//Root/GUID],@[//Root/NextFormName],@[//Root/RendelesId]}" next_form_name="ti_faradtsag" sylnCrown="SELECT CASE WHEN @[//Root/MelyikPanel] IN (11,12,13) AND @[../../ValaszSkala.key] IS NOT NULL THEN 'KovetkezoGombKek' ELSE 'KovetkezoGombSzurke' END" validatorGroup="tovabb"/>
+			</Control>
+		</Control>
+		
+		<Control type="panel" name="KoszonjukPanel" layout="standard" navigation="inline" headless="true" table_width="1swt" generator="SELECT '1' WHERE @[//Root/MelyikPanel] = 2" >
+			
+			
+			<Control type="label" text="{SELECT megjelenites FROM Reference_ti_nyelv WHERE id = 'koszonjuk_a_valaszokat' AND nyelv = @[//Root/UserNyelv] AND object_id = @[//Root/ObjectId]}" sylnCrown="=CimsorVege"/>
+			
+			<Control type="label" label="" text="" width="0.75swt" sylnCrown="=NagySpacing"/>
+			
+			<Control type="panel" name="KoszonjukAlsoButtonPanel" layout="table" navigation="inline" headless="true" table_width="1swt" >
+				<Control type="label" label="" text="" width="0.75swt" />
+				<Control type="closebutton" name="Vege" width="remaining 1" action="submit_form" size="large" next_form_name="{SELECT @[//Root/NextFormName]}" param_reference="SELECT @[//Root/RendelesId]" sylnCrown="=KovetkezoGombKek" /> 
+			</Control>
+		</Control>
+		
+	</Control>
+</Form>

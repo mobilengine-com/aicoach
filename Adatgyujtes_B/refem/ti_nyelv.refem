@@ -1,0 +1,8 @@
+<Reftab Name="ti_nyelv" xmlns="http://schemas.mobilengine.com/reftab/v1" NullOnDelete="true" Access="Hidden" >
+	<Columns>
+		<Column Name="id" Type="Text" PrimaryKey="true" NotNull="true" />
+		<Column Name="nyelv" Type="Text" PrimaryKey="true" NotNull="true" />
+		<Column Name="object_id" Type="Text" PrimaryKey="true" NotNull="true" />
+		<Column Name="megjelenites" Type="Text" NotNull="true" />
+	</Columns>
+</Reftab>

@@ -1,0 +1,313 @@
+client program hv_questionaire_client for form Questionaire
+using reftab hv_next_form_temp;
+using reftab hv_answer_temp;
+using reftab hv_user;
+using reftab alarms;
+
+{
+	var notification_title = "Answer your questionnaire";
+	var notification_text = "Please tap here";
+	var setAlamrs = function() {
+		foreach (var row in db.alarms.Read({user: form.user.name})) {
+		db.alarms.Delete(row);
+		}
+			var alarmStart = submit_date;
+			var alarmFinish = null;
+			for(var i = 1;i < 9;i=i+1) {
+				alarmStart = alarmStart.DtlAddHours(4);
+				alarmFinish = alarmStart.DtlAddHours(2);
+				db.alarms.Insert({
+					user: form.user.name,
+					alarm_id: i,
+					alarm_start: alarmStart.DtlToDtdb(),
+					alarm_finish: alarmFinish.DtlToDtdb(),
+					alarm_interval_min: 10,
+					notification_title: notification_title,
+					notification_text: notification_text,
+					notification_enabled: "true"
+				});
+			}
+	};
+
+
+	var submit_date = dtl.Now();
+	if(form.dtlSubmit != null)
+	{
+		submit_date = form.dtlSubmit;
+	}
+
+
+	var str_date = dtl.Now().Format((dtf MM "-" dd "-" yyyy " " HH ":" mm ":" ss));
+	
+	if(form.Root.Answer_Timestamp.value == ""){
+		if(form.dtlSubmit != null)
+		{
+		str_date = form.dtlSubmit.Format((dtf MM "-" dd "-" yyyy " " HH ":" mm ":" ss));
+		}
+	}
+	else
+		str_date = form.Root.Answer_Timestamp.value;
+	
+	
+	
+	
+	if(form.Root.Answer_Control_Type.value == "radiobutton" ){
+			
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Radio_Answer_P[0].Radio_Answer_Value.value,
+					timestamp:		str_date
+
+				});	
+	}
+	
+	if(form.Root.Answer_Control_Type.value == "dotted_combobox" ){
+			
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Dotted_Answer_P[0].Dotted_Answer_Value.value,
+					timestamp:		str_date
+				});	
+	}
+	
+	
+	if(form.Root.Answer_Control_Type.value == "simple_combobox" ){
+			
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Simple_Combobox_P[0].Simple_Combobox_Answer_T.Simple_Combobox_Answer.value,
+					timestamp:		str_date
+				});	
+	}
+	
+	
+	if(form.Root.Answer_Control_Type.value == "time_combobox" ){
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Time_Combobox_P[0].Time_Combobox_Answer.value,
+					timestamp:		str_date
+				});	
+	}
+	
+	
+	if(form.Root.Answer_Control_Type.value == "checkbox" ){
+			foreach(var formRow in form.Root.Checkbox_Answer_P[0].Checkbox_Answer_T_P)
+			{
+				
+				var isChecked = "0";
+				
+				if (formRow.Answer_Row.Is_Checked.value == "true")
+					isChecked = "1";
+				
+				var comment = null; 
+				if(formRow.Comment_P.Count() >= 1)
+					comment = formRow.Comment_P[0].Comment.value;
+				
+				db.hv_answer_temp.InsertOrUpdate({
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value),	
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			formRow.Answer_Row.Checkbox_Answer.value
+				},
+				{
+					guid:			formRow.Answer_Row.Question_guid_cb.value,
+					other:			comment,
+					is_checked:		int.Parse(isChecked),
+					timestamp:		str_date
+				});
+			}
+	}
+	
+	if(form.Root.Answer_Control_Type.value == "datetimepicker" ){
+			
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Date_Answer_P[0].Date_Answer.value,
+					timestamp:		str_date
+				});	
+	}	
+
+	if(form.Root.Answer_Control_Type.value == "timepicker" ){
+			
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Time_Answer_P[0].Time_Answer.value,
+					timestamp:		str_date
+				});	
+	}
+		
+	
+			
+	if(form.Root.Answer_Control_Type.value == "textbox" ){
+			
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Text_Answer_P[0].Text_Answer.value,
+					timestamp:		str_date
+				});	
+	}		
+	
+	if(form.Root.Answer_Control_Type.value == "numberbox" ){
+			
+				db.hv_answer_temp.InsertOrUpdate({
+				
+					usr:			form.user.name,
+					question_id:	int.Parse(form.Root.Question_Id.value)
+				},
+				{	
+					guid:			form.Root.Question_guid.value,
+					subject_id: 	form.Root.SubjectID.value,
+					answer:			form.Root.Number_Answer_P[0].Number_Answer.value,
+					timestamp:		str_date
+				});	
+	}	
+	
+			
+			
+	if(form.controlSubmit.nid == "Forward")
+	{		
+			db.hv_next_form_temp.InsertOrUpdate
+			({
+				usr: 				form.user.name
+			},
+			{
+				question_id: 		int.Parse(form.Root.Question_Forward_Id.value)
+			});
+	}
+	if(form.controlSubmit.nid == "Back"){
+		db.hv_next_form_temp.InsertOrUpdate
+		({
+			usr: 				form.user.name
+		},
+		{
+			question_id: 		int.Parse(form.Root.Question_Back_Id.value)
+		});
+	}
+	
+	if(form.controlSubmit.nid == "BackToSleep"){
+		db.hv_user.Update({
+			usr:			form.user.name,		
+			subject_id:		form.Root.SubjectID.value
+		},
+		{
+			status_id:				30
+			
+		});
+	}
+	
+	if(form.controlSubmit.nid == "Finish_OneTime"){
+	
+		foreach (var row in db.hv_answer_temp.Read({usr: form.user.name, subject_id: form.Root.SubjectID.value})) { 
+			
+			
+			db.hv_answer_temp.Delete(row);
+		}
+		
+		var periodFinish = submit_date.DtlAddDays(15);
+		setAlamrs();
+		
+		db.hv_user.Update({
+			usr:			form.user.name,		
+			subject_id:		form.Root.SubjectID.value
+		},
+		{
+			period_finish:			periodFinish.DtlToDtdb(),
+			status_id:				30
+			
+		});	
+	}	
+	
+	if(form.controlSubmit.nid == "Finish_SleepDiary"){
+		
+		
+		db.hv_next_form_temp.Update({
+			usr:					form.user.name
+		},
+		{
+			question_id:			int.Parse(form.Root.First_VAS.value)
+		});
+	}
+	
+	
+	
+	
+	if(form.controlSubmit.nid == "Finish_VAS"){
+		
+		foreach (var row in db.hv_answer_temp.Read({usr: form.user.name, subject_id: form.Root.SubjectID.value})) { 
+			
+			
+			db.hv_answer_temp.Delete(row);
+		}
+		
+		//ha a user status 40 akkor nem írok vas timeot
+		
+		if(int.Parse(form.Root.User_status.value) != 40 ){
+			db.hv_user.Update({
+			usr:			form.user.name,		
+			subject_id:		form.Root.SubjectID.value
+		},
+		{
+			status_id:				30
+			
+		});	
+			setAlamrs();
+		}
+		var pf = dtl.Parse((dtf MM "-" dd "-" yyyy " " HH ":" mm ":" ss), form.Root.Period_Finish.value);
+		if(pf < submit_date){
+			db.hv_user.Update({
+				usr:			form.user.name,		
+				subject_id:		form.Root.SubjectID.value
+			},
+			{
+				status_id:		50
+			});
+			foreach (var row in db.alarms.Read({user: form.user.name})) {
+				db.alarms.Delete(row);
+			}
+		}
+	}
+	
+}

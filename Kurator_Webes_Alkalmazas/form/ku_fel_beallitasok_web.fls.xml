@@ -1,0 +1,186 @@
+<form id='ku_fel_beallitasok_web'
+      platforms='web'
+      menuName='Beállítások'
+      title='Kurátori felület - Beállítások'
+      xmlns='http://schemas.mobilengine.com/fls/v2'
+      style='{styles.default}'
+      >
+<declarations>
+    <let id='isProduction' shape='scalar' value='{true}'/>
+    <!-- Üzem tábla lekérése-->
+    <let id='tblUzem' shape='table' value='{SELECT DISTINCT uzem.id, uzem.telepules, uzem.uzem_neve, uzem.kerdoiv_kuldes_napszak, uzem.aktiv_inaktiv_teljes_uzemen FROM uzem uzem}'/>
+    <!-- Felhasználó tábla lekérése TODO lapozó készítése-->
+    <let id='tbFelhasznalok' shape='table' value='{SELECT felhasznalo.id, felhasznalo.felhasznalo_nev, felhasznalo.fk_role_id, felhasznalo.fk_uzem_id, felhasznalo.aktiv_inaktiv FROM felhasznalo felhasznalo}'/>
+    <!-- a választott üzem nevének mentése-->   
+    <let id='valNev' shape='scalar' value='{SELECT ddUzemNeve.selectedText}' />
+    <!-- a választott telepulés és üzemnév alapján a tblUzem-ből visszatér az uzem.id-del-->
+    <let id='valasztottUzemId' shape='scalar' value='{SELECT  uzem.id id FROM  tblUzem uzem
+            WHERE uzem.uzem_neve = valNev
+                                }'/>
+    <!-- a valasztottUzemid alapján aktiv vagy inaktív az adott üzem -->
+    <let id='isTeljesUzemreAktiv' shape='scalar' value='{SELECT uzem.aktiv_inaktiv_teljes_uzemen
+                                                         FROM tblUzem uzem
+                                                         WHERE uzem.id = valasztottUzemId}'/>  
+</declarations>
+<header>
+    <discardbutton text='Mégsem' confirm='{false}'
+    nextForm='{forms.ku_fel_beallitasok_web}'
+                     />
+    <if cond='{changed}'>
+      <submitbutton text='Mentés'
+                    nextForm='{forms.ku_fel_beallitasok_web}'
+                    closeForm='{true}'
+      />  
+    </if>
+</header>
+<if cond='{isProduction == false}'>
+    <chapter title='Teszt verzió' style='{styles.debug}'/>
+</if>
+    <!-- ÜZEM SZINTŰ BEÁLLÍTÁSOK-->
+<chapter title='Beállítások üzem szinten' style='{styles.foCim}'>
+    <!-- ÜZEM KIVÁLASZTÁSA -->
+    <chapter title='Üzem kiválasztása' style='{styles.cim01}'> 
+            <dropdown label='' id='ddUzemNeve'  style='{styles.dropdownStyle}' keyMap='{key}' textMap='{value}' choices='{SELECT DISTINCT uzem.id key, uzem.uzem_neve value FROM tblUzem uzem }' />
+    </chapter>
+    <!-- KÉRDŐÍV IDŐZÍTÉSE NAPSZAK SZERINT-->
+    <chapter title='A kérdőívek kiosztásának időzítése napszak szerint' style='{styles.cim01}'>   
+    <dropdown label=''
+    id='dKerdoivIdozitese'
+    style='{styles.dropdownStyle}'
+    keyMap='{key}' textMap='{value}'
+    choices='{SELECT DISTINCT kioszt.id key, kioszt.napszak value FROM kerdoiv_kuldes_napszak kioszt}'
+    selectedKey='{SELECT kioszt.id
+                  FROM kerdoiv_kuldes_napszak kioszt
+                  WHERE kioszt.id = (
+                                      SELECT uzem.kerdoiv_kuldes_napszak 
+                                      FROM tblUzem uzem
+                                      WHERE uzem.id = valasztottUzemId
+                                      )}'
+/>
+</chapter> 
+    <!-- KÉRDŐÍV AKTIVÁLÁSA ÜZEMEN BELÜL-->
+<chapter id='cptAktivalasTeljesUzemenBelul' title='A kérdőívek aktíválása teljes üzemen belül' style='{styles.cim01}'>
+    <table id='tblAktivalas' record='r' recordset='{SELECT 1}' style='{styles.table01}'>
+        <row>
+            <cell>
+    <actionbutton text='Inaktiválás' style='{SELECT CASE 
+                                                  WHEN  (inActivalasUzemre = true AND activalasUzemre = false)  OR (isTeljesUzemreAktiv = 0 AND visszaEredetiErtekeket = true) OR
+                                                  (activalasUzemre = false AND  inActivalasUzemre = false AND isTeljesUzemreAktiv = 0)  
+                                                  THEN  styles.activButton 
+                                                  END }'>
+        <declarations>
+            <let id='inActivalasUzemre' shape='scalar' value='{SELECT CASE
+                                                                        WHEN visszaEredetiErtekeket = true
+                                                                        AND isTeljesUzemreAktiv = 0 
+                                                                        THEN true
+                                                                        ELSE false
+                                                                        END
+                                                                    }'/>
+        </declarations>
+        <set target='visszaEredetiErtekeket' value= '{false}'/>
+        <set target='inActivalasUzemre' value='{true}'/>
+        <set target='activalasUzemre' value='{false}'/> 
+    </actionbutton>
+        </cell>
+        <cell>    
+    <actionbutton text='Aktiválás' style='{SELECT CASE 
+                                              WHEN  (activalasUzemre = true AND inActivalasUzemre = false) OR (isTeljesUzemreAktiv = 1 AND visszaEredetiErtekeket = true) OR
+                                              (activalasUzemre = false AND  inActivalasUzemre = false AND isTeljesUzemreAktiv = 1)
+                                                THEN styles.activButton
+                                              END }'>
+        <declarations>
+            <let id='activalasUzemre' shape='scalar' value='{SELECT CASE
+            WHEN visszaEredetiErtekeket = true
+            AND isTeljesUzemreAktiv = 1 
+            THEN true
+            ELSE false
+            END}'/>
+        </declarations>
+        <set target='visszaEredetiErtekeket' value= '{false}'/>
+        <set target='activalasUzemre' value='{true}'/> 
+        <set target='inActivalasUzemre' value='{false}'/>
+    </actionbutton>
+    </cell>
+    <cell>
+    <actionbutton text='Eredeti értékek' style='{SELECT CASE 
+                                                        WHEN  visszaEredetiErtekeket = true
+                                                            THEN styles.activButton02
+                                                        END }'>
+        <declarations>
+            <let id='visszaEredetiErtekeket' shape='scalar' value='{false}' />
+        </declarations>
+        <set target='visszaEredetiErtekeket' value='{true}'/>
+    </actionbutton>
+    </cell>
+        </row>
+    </table>
+</chapter>
+
+</chapter>
+<!-- FELHASZNALÓ SZINTŰ BEÁLLÍTÁSOK-->
+<chapter title='Beállítások felhasználó szinten' style='{styles.foCim}'>
+    <!-- KERESÉS NÉV ALAPJÁN-->
+    <chapter title='Keresés névre' style='{styles.cim02}' > 
+    <textarea id='taNevKereses' style='{styles.areaStyle}' label='' hint='Név' />
+        <!-- FELHASZNALOK TÁBLÁZAT - a valasztottUzemId alapján az adott üzemhez tartozó felhasználókkal tér vissza a táblázat, ahol a felhasználó nem kurátor-->
+    </chapter>
+    <chapter title='{valNev || " - Felhasználók"}' style='{styles.cim01}' > 
+    <table id='tblFelhasznalo'
+       style='{styles.foTabla}'
+       record='felh'
+       recordset='{SELECT felh.id AS key, felh.felhasznalo_nev AS value, felh.aktiv_inaktiv, felh.fk_uzem_id 
+                   FROM tbFelhasznalok felh
+                   WHERE felh.fk_uzem_id = valasztottUzemId
+                   AND felh.fk_role_id = 3
+                   AND felh.felhasznalo_nev LIKE "%" || taNevKereses.text || "%"
+                     }'>
+    <declarations>
+       <let id='visszaEredetiErtekeket' shape='scalar' value='{SELECT r.visszaEredetiErtekeket FROM cptAktivalasTeljesUzemenBelul.tblAktivalas.rows r}'/>
+       <let id='inActivalasUzemre' shape='scalar' value='{SELECT r.inActivalasUzemre FROM cptAktivalasTeljesUzemenBelul.tblAktivalas.rows r}'/>
+       <let id='activalasUzemre' shape='scalar' value='{SELECT r.activalasUzemre FROM cptAktivalasTeljesUzemenBelul.tblAktivalas.rows r}'/>
+    </declarations>
+    <header>
+        <row>
+            <cell>
+                <textview text='Azonosító'/>
+            </cell>
+            <cell>
+                <textview text='Név'/>
+            </cell>
+            <cell>
+                <textview text='Kérdőív aktiválása'/>
+            </cell>
+        </row>
+    </header>
+    <row>
+        
+        <cell>
+            <textview text='{TOSTRING(felh.key)}'/>
+        </cell>
+        <cell>
+            <textview text='{felh.value}'/>
+        </cell>
+        <cell>
+           
+                <segmentedbutton id='sgbtnAktivalasEgyeni'
+                                 style='{styles.segmBut}'
+                                 keyMap='{key}'
+                                 textMap='{value}'
+                                 selectedKey='{SELECT CASE
+                                                        WHEN (inActivalasUzemre = false AND activalasUzemre = false) OR visszaEredetiErtekeket = true 
+                                                        THEN felh.aktiv_inaktiv
+                                                        WHEN  inActivalasUzemre = true
+                                                        THEN 0
+                                                        WHEN activalasUzemre = true
+                                                        THEN 1 
+                                                        END                                    
+                                                }'
+                                 choices='{SELECT 0 key, "Inaktív" value UNION 
+                                           SELECT 1 key, "Aktív" value }'
+                 />
+        </cell>
+    </row>
+</table>
+</chapter>
+</chapter>
+</form>

@@ -1,0 +1,7 @@
+<Reftab Name="hv_scale_descriptions" SyncNullAsEmptyString="true" Access="Readonly" xmlns="http://schemas.mobilengine.com/reftab/v1">
+	<Columns>
+		<Column Name="id" Type="Integer" NotNull="true" PrimaryKey="true" />
+		<Column Name="content_id" Type="Integer" NotNull="true" />
+		<Column Name="description" Type="Text" NotNull="true" />
+	</Columns>
+</Reftab>

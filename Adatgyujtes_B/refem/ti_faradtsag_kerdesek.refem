@@ -1,0 +1,12 @@
+<Reftab Name="ti_faradtsag_kerdesek" xmlns="http://schemas.mobilengine.com/reftab/v1" NullOnDelete="true" Access="Readonly" > 
+	<Columns>
+		<Column Name="id" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="kerdes_id" Type="Integer" NotNull="true" />
+		<Column Name="kerdes" Type="Text" NotNull="true" />
+		<Column Name="tipuson_beluli_id" Type="Text" NotNull="true"/>
+		<Column Name="tipus" Type="Text" NotNull="true"/>
+		<Column Name="nyelv" Type="Text" NotNull="true"/>
+		<Column Name="het_napja" Type="Integer" NotNull="true"/>
+		<Column Name="nap_megnevezes" Type="Text" NotNull="true" />
+	</Columns>
+</Reftab>

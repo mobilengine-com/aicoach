@@ -1,0 +1,8 @@
+<Reftab Name="hv_missing" Access="Hidden" xmlns="http://schemas.mobilengine.com/reftab/v1" >
+  <Columns>
+    <Column Name="guid" Type="Text" PrimaryKey="true" NotNull="true" />
+    <Column Name="subject_id" Type="Text" NotNull="true" />
+    <Column Name="alarm_start" Type="Date" NotNull="true" />
+    <Column Name="alarm_finish" Type="Date" NotNull="true" />
+  </Columns>
+</Reftab>

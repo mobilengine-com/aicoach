@@ -1,0 +1,6 @@
+<Reftab Name="hv_status" SyncNullAsEmptyString="true" Access="Readonly" xmlns="http://schemas.mobilengine.com/reftab/v1">
+	<Columns>
+		<Column Name="status_id" Type="Integer" NotNull="true" PrimaryKey="true" />
+		<Column Name="status" Type="Text" NotNull="true" />
+	</Columns>
+</Reftab>

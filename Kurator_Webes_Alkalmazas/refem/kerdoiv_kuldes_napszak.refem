@@ -1,0 +1,6 @@
+<Reftab Name="kerdoiv_kuldes_napszak" xmlns="http://schemas.mobilengine.com/reftab/v1" >
+	<Columns>
+        <Column Name="id" Type="Integer" NotNull="true" PrimaryKey="true"/>
+        <Column Name="napszak" Type="Text" NotNull="true"/>
+        </Columns>
+</Reftab>

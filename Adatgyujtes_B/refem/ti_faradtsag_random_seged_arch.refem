@@ -1,0 +1,11 @@
+<Reftab Name="ti_faradtsag_random_seged_arch" xmlns="http://schemas.mobilengine.com/reftab/v1" NullOnDelete="true" Access="Readonly" > 
+	<Columns>
+		<Column Name="guid" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="id" Type="Text" NotNull="true" />
+		<Column Name="usr" Type="Text" NotNull="true" />
+		<Column Name="melyik_nap" Type="Date" NotNull="true"/>
+		<Column Name="fo_tipus" Type="Integer" NotNull="true"/>
+		<Column Name="elso_kerdes" Type="Integer" NotNull="true"/>
+		<Column Name="masodik_kerdes" Type="Integer" NotNull="true"/>
+	</Columns>
+</Reftab>

@@ -1,0 +1,6 @@
+<Reftab Name="ti_faradtsag_felhasznalo" xmlns="http://schemas.mobilengine.com/reftab/v1" NullOnDelete="true" Access="Readonly" > 
+	<Columns>
+		<Column Name="user" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="sap_usr" Type="Text" NotNull="true" PrimaryKey="true" />
+	</Columns>
+</Reftab>

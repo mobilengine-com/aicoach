@@ -1,0 +1,5 @@
+<Reftab Name="ti_faradtsag_skala" xmlns="http://schemas.mobilengine.com/reftab/v1" NullOnDelete="true" Access="Readonly" > 
+	<Columns>
+		<Column Name="ertek" Type="Integer" NotNull="true" PrimaryKey="true" />
+	</Columns>
+</Reftab>

@@ -1,0 +1,233 @@
+server program ti_s_faradtsag_randomizalo
+for schedule 30 0 * * 1
+first run at 2020-01-01 00:00
+using reftab ti_naptar;
+using reftab ti_faradtsag_random_seged;
+using reftab ti_faradtsag_random_seged_arch;
+using reftab ti_faradtsag_kerdesek;
+using reftab ti_faradtsag_felhasznalo;
+{
+	//***** Guid-ból Random számot készít.
+	var ToRandom = function(var guidString, var kerdes_tipus, var kerdesekCount) {
+		var randomMap = map.New();
+		
+		guidString = guidString.Replace("a", "");
+		guidString = guidString.Replace("b", "");
+		guidString = guidString.Replace("c", "");
+		guidString = guidString.Replace("d", "");
+		guidString = guidString.Replace("e", "");
+		guidString = guidString.Replace("f", "");
+		guidString = guidString.Replace("g", "");
+		guidString = guidString.Replace("h", "");
+		guidString = guidString.Replace("i", "");
+		guidString = guidString.Replace("j", "");
+		guidString = guidString.Replace("k", "");
+		guidString = guidString.Replace("l", "");
+		guidString = guidString.Replace("m", "");
+		guidString = guidString.Replace("n", "");
+		guidString = guidString.Replace("o", "");
+		guidString = guidString.Replace("p", "");
+		guidString = guidString.Replace("q", "");
+		guidString = guidString.Replace("r", "");
+		guidString = guidString.Replace("s", "");
+		guidString = guidString.Replace("t", "");
+		guidString = guidString.Replace("u", "");
+		guidString = guidString.Replace("v", "");
+		guidString = guidString.Replace("w", "");
+		guidString = guidString.Replace("x", "");
+		guidString = guidString.Replace("y", "");
+		guidString = guidString.Replace("z", "");
+		
+		var mennyiszerFutLe = kerdesekCount;
+		//****5 alkalommal kell lefutnia az igaz ágnak
+		for(var i = 0; i <= mennyiszerFutLe; i = i + 1)
+		{
+			var random = (int.Parse(guidString[i]) % kerdesekCount).ToString();
+			if(!randomMap.ContainsKey(kerdes_tipus + random)){
+				randomMap[kerdes_tipus + random] = {
+					tipus:				kerdes_tipus,
+					tipuson_beluli_id:	int.Parse(random),
+					guidString: 		guidString.ToString()
+				};
+			}
+			else{
+				// duplikáció elkerülése miatt tovább kell, hogy fusson a for ciklus, de nem lehet végtelen ciklus
+				if(mennyiszerFutLe <= 20)
+					mennyiszerFutLe = mennyiszerFutLe + 1;
+				else
+					mennyiszerFutLe = 0;
+			}
+		}
+		
+		return randomMap;
+	};
+	
+	var StartOfYear = function(var dateDtl) {
+		var strDate = dateDtl.Format((dtf yyyy "-01-01 00:00:00"));
+		return dtl.Parse((dtf yyyy "-" MM "-" dd " " HH ":" mm ":" ss), strDate);
+	};
+
+	var felhasznaloMap = map.New();
+	var dateNow = dtl.Now().StartOfDay();
+	var yearStartDtl = StartOfYear(dateNow);
+	var yearEndDtl = yearStartDtl.DtlAddYears(1);
+	var utolsoDatum = null;
+	var utolsoFoTipus = null;
+	var faradtsagRandomSeged = db.ti_faradtsag_random_seged.Read(map.New());
+	//Ürítjük a táblát minden héten, de előtte kivesszük az előző hét pénteki Fő típust, hogy azt léptessük, végül archíválunk
+	foreach (var data in faradtsagRandomSeged)
+	{
+		if(utolsoDatum != null){
+			if(utolsoDatum < data.melyik_nap.DeclareAsDtl()){
+				utolsoDatum = data.melyik_nap.DeclareAsDtl();
+				utolsoFoTipus = data.fo_tipus;
+			}
+		}
+		else{
+			utolsoDatum = data.melyik_nap.DeclareAsDtl();
+			utolsoFoTipus = data.fo_tipus;
+		}
+		data.guid = guid.Generate().ToStringN();
+		db.ti_faradtsag_random_seged_arch.Insert(data);
+	}
+	db.ti_faradtsag_random_seged.DeleteMany(map.New());
+		
+	var hetSzama = db.ti_naptar.ReadFields({datum: dateNow.DtlToDtdb()}, ["het_sorszam"]);
+	//trace hetSzama;
+	var hetfoiNap = db.ti_naptar.Read({datum: {greaterOrEqual: yearStartDtl.DtlToDtdb(), lessThan: yearEndDtl.DtlToDtdb()}, het_sorszam: hetSzama[0].het_sorszam, het_napja: "2"});
+	//trace hetfoiNap;
+		
+	
+		
+	// var kategoriaMap = map.New();
+	// kategoriaMap["1"] = {neve: "fizikai"};
+	// kategoriaMap["2"] = {neve: "szellemi"};
+	// kategoriaMap["3"] = {neve: "szocialis"};
+	
+		
+	var fizikaiKerdesekCount = 0;
+	var szellemiKerdesekCount = 0;
+	var szocialisKerdesekCount = 0;
+	
+	var kerdesekMap = map.New();
+	foreach(var row in db.ti_faradtsag_kerdesek.Read(map.New())){
+		if(!kerdesekMap.ContainsKey(row.tipus + row.tipuson_beluli_id.ToString())){
+			kerdesekMap[row.tipus + row.tipuson_beluli_id.ToString()] = {
+				id:		row.kerdes_id		
+			};
+			if(row.tipus == "fizikai")
+				fizikaiKerdesekCount = fizikaiKerdesekCount + 1;
+			if(row.tipus == "szellemi")
+				szellemiKerdesekCount = szellemiKerdesekCount + 1;
+			if(row.tipus == "szocialis")
+				szocialisKerdesekCount = szocialisKerdesekCount + 1;
+		}
+		
+	}
+	
+	foreach(var row in db.ti_faradtsag_felhasznalo.Read(map.New())){
+		var fizikaiRandomSzam = guid.Generate().ToStringN().ToLower() + guid.Generate().ToStringN().ToLower() + guid.Generate().ToStringN().ToLower();
+		var szellemiRandomSzam = guid.Generate().ToStringN().ToLower() + guid.Generate().ToStringN().ToLower() + guid.Generate().ToStringN().ToLower();
+		var szocialisRandomSzam = guid.Generate().ToStringN().ToLower() + guid.Generate().ToStringN().ToLower() + guid.Generate().ToStringN().ToLower();
+		
+		var fizikaiMap = ToRandom(fizikaiRandomSzam, "fizikai", fizikaiKerdesekCount);
+		var szellemiMap = ToRandom(szellemiRandomSzam, "szellemi", szellemiKerdesekCount);
+		var szocialisMap = ToRandom(szocialisRandomSzam, "szocialis", szocialisKerdesekCount);
+		
+		felhasznaloMap[row.user] = {
+			fizikai: 		fizikaiMap,
+			szellemi: 		szellemiMap,
+			szocialis: 		szocialisMap
+		};
+	}
+	
+	//felhasználónként és naponta random kérdéseket pakolunk össze és töltjük fel a táblába
+	foreach(var usr in felhasznaloMap.Keys()){
+		//Listába szedjük a random számokat és a listát bejárva pakoljuk a helyükre a dolgokat
+		var fizikaiLista = list.New();
+		foreach(var key in felhasznaloMap[usr].fizikai.Keys()){
+			fizikaiLista.Add(felhasznaloMap[usr].fizikai[key].tipuson_beluli_id);
+		}
+		//trace fizikaiLista;
+		var szellemiLista = list.New();
+		foreach(var key in felhasznaloMap[usr].szellemi.Keys()){
+			szellemiLista.Add(felhasznaloMap[usr].szellemi[key].tipuson_beluli_id);
+		}
+		//trace szellemiLista;
+		var szocialisLista = list.New();
+		foreach(var key in felhasznaloMap[usr].szocialis.Keys()){
+			szocialisLista.Add(felhasznaloMap[usr].szocialis[key].tipuson_beluli_id);
+		}
+		//trace szocialisLista;
+		
+		//Loop fentartása -> az előzőhét pénteki főtípus alapján (ha volt) 1,2,3,1,2,3,1...
+		var elsoFoTipus = utolsoFoTipus == null ? 1 : (utolsoFoTipus == 3 ? 1 : utolsoFoTipus + 1);
+		var masodikFoTipus = elsoFoTipus == 3 ? 1 : elsoFoTipus + 1;
+		var fizikaiCount = null;
+		var szellemiCount = null;
+		var szocialisCount = null;
+		var segedKey = null;
+		var date = hetfoiNap[0].datum.DeclareAsDtl();
+		//Hétfőtől péntekig gyártjuk az adatokat felhasználónként random kérdésekkel
+		for(var i = 0; i <= 4; i = i + 1){
+			var randomKerdesSegedMap = map.New();
+			
+			segedKey = usr + i.ToString();
+			randomKerdesSegedMap[segedKey] = {
+				id: guid.Generate().ToStringN(),
+				usr: usr,
+				melyik_nap: date.DtlToDtdb(),
+				fo_tipus: elsoFoTipus
+			};
+			// randomKerdesSegedMap[segedKey].id = guid.Generate().ToStringN();
+			// randomKerdesSegedMap[segedKey].usr = usr;
+			// randomKerdesSegedMap[segedKey].melyik_nap = hetfoiNap[0].datum;
+			// randomKerdesSegedMap[segedKey].fo_tipus = elsoFoTipus;
+			//trace "elsoFoTipus " + elsoFoTipus.ToString();
+			//trace "masodikFoTipus " + masodikFoTipus.ToString();
+			//trace "----- fizikaiCount ------";
+			//trace fizikaiCount;
+			if(elsoFoTipus == 1){
+				fizikaiCount = fizikaiCount == null ? 0 : fizikaiCount + 1;
+				// trace "fizikaiCount + 1";
+				// trace randomKerdesSegedMap[segedKey];
+				// trace fizikaiLista;
+				// trace fizikaiCount;
+				// trace fizikaiLista[fizikaiCount];
+				// trace kerdesekMap["fizikai" + fizikaiLista[fizikaiCount].ToString()];
+				randomKerdesSegedMap[segedKey].elso_kerdes = kerdesekMap["fizikai" + fizikaiLista[fizikaiCount].ToString()].id;
+			}
+			if(elsoFoTipus == 2){
+				szellemiCount = szellemiCount == null ? 0 : szellemiCount + 1;
+				// trace "szellemiCount + 1";
+				randomKerdesSegedMap[segedKey].elso_kerdes = kerdesekMap["szellemi" + szellemiLista[szellemiCount].ToString()].id;
+			}
+			if(elsoFoTipus == 3){
+				szocialisCount = szocialisCount == null ? 0 : szocialisCount + 1;
+				// trace "szocialisCount + 1";
+				randomKerdesSegedMap[segedKey].elso_kerdes = kerdesekMap["szocialis" + szocialisLista[szocialisCount].ToString()].id;
+			}
+			if(masodikFoTipus == 1){
+				fizikaiCount = fizikaiCount == null ? 0 : fizikaiCount + 1;
+				// trace "fizikaiCount + 1";
+				randomKerdesSegedMap[segedKey].masodik_kerdes = kerdesekMap["fizikai" + fizikaiLista[fizikaiCount].ToString()].id;
+			}
+			if(masodikFoTipus == 2){
+				szellemiCount = szellemiCount == null ? 0 : szellemiCount + 1;
+				// trace "szellemiCount + 1";
+				randomKerdesSegedMap[segedKey].masodik_kerdes = kerdesekMap["szellemi" + szellemiLista[szellemiCount].ToString()].id;
+			}
+			if(masodikFoTipus == 3){
+				szocialisCount = szocialisCount == null ? 0 : szocialisCount + 1;
+				// trace "szocialisCount + 1";
+				randomKerdesSegedMap[segedKey].masodik_kerdes = kerdesekMap["szocialis" + szocialisLista[szocialisCount].ToString()].id;
+			}
+			
+			db.ti_faradtsag_random_seged.Insert(randomKerdesSegedMap[segedKey]);
+			date = date.DtlAddDays(1);
+			elsoFoTipus = elsoFoTipus == 3 ? 1 : elsoFoTipus + 1;
+			masodikFoTipus = masodikFoTipus == 3 ? 1 : masodikFoTipus + 1;
+		}
+	}
+	
+}

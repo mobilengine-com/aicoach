@@ -1,0 +1,93 @@
+client server program hv_sleep2 for form hv_sleep2
+using reftab hv_next_form_temp;
+using reftab hv_answer_temp;
+using reftab hv_user;
+using reftab alarms;
+{
+	var timestamp = null;
+	var notification_title = "Answer your questionnaire";
+	var notification_text = "Please tap here";
+	
+	if (form.dtlSubmit == null)
+		timestamp = dtl.Now();
+ 	else
+		timestamp = form.dtlSubmit;
+	
+	db.hv_answer_temp.InsertOrUpdate({
+		usr: form.user.name,
+		subject_id: form.Root.SubjectID.value,
+		question_id: int.Parse(form.Root.AutomaticallyFillQuestionID.value)
+	},{
+		guid: form.Root.AutomaticallyFillGuid.value,
+		answer: timestamp.Format((dtf MM "-" dd "-" yyyy " " HH ":" mm)),
+		timestamp: timestamp.Format((dtf MM "-" dd "-" yyyy " " HH ":" mm ":" ss))
+	});
+	
+	db.hv_answer_temp.InsertOrUpdate({
+		usr: form.user.name,
+		subject_id: form.Root.SubjectID.value,
+		question_id: int.Parse(form.Root.QuestionID.value)
+	},{
+		guid: form.Root.Guid.value,
+		answer: form.Root.DateAnswer.value,
+		timestamp: timestamp.Format((dtf MM "-" dd "-" yyyy " " HH ":" mm ":" ss))
+	});
+	
+	db.hv_next_form_temp.InsertOrUpdate({usr: form.user.name},{
+		question_id: int.Parse(form.Root.NextQuestionID.value)
+	});
+	
+	db.hv_user.Update(
+	{
+		usr: form.user.name, 
+		subject_id: form.Root.SubjectID.value
+	},{
+		status_id: 40
+	});
+	
+	foreach (var row in db.alarms.Read({user: form.user.name})) {
+		db.alarms.Delete(row);
+	}
+	
+	var alarmStart = dtl.Parse((dtf yyyy "-" MM "-" dd " " HH ":" mm ":" ss), form.Root.DateAnswerEuropeFormat.value);
+	var alarmFinish = alarmStart.DtlAddHours(2);
+	db.alarms.Insert({
+		user: form.user.name,
+		alarm_id: 1,
+		alarm_start: alarmStart.DtlToDtdb(),
+		alarm_finish: alarmFinish.DtlToDtdb(),
+		alarm_interval_min: 10,
+		notification_title: notification_title,
+		notification_text: notification_text,
+		notification_enabled: "false"
+	});
+	
+	alarmStart = alarmFinish;
+	alarmFinish = alarmStart.DtlAddHours(2);
+	db.alarms.Insert({
+		user: form.user.name,
+		alarm_id: 2,
+		alarm_start: alarmStart.DtlToDtdb(),
+		alarm_finish: alarmFinish.DtlToDtdb(),
+		alarm_interval_min: 10,
+		notification_title: notification_title,
+		notification_text: notification_text,
+		notification_enabled: "true"
+	});
+	
+	for(var i = 1;i < 9;i=i+1) {
+		alarmStart = alarmStart.DtlAddHours(4);
+		alarmFinish = alarmStart.DtlAddHours(2);
+		db.alarms.Insert({
+			user: form.user.name,
+			alarm_id: i+2,
+			alarm_start: alarmStart.DtlToDtdb(),
+			alarm_finish: alarmFinish.DtlToDtdb(),
+			alarm_interval_min: 10,
+			notification_title: notification_title,
+			notification_text: notification_text,
+			notification_enabled: "true"
+		});
+	}
+
+}

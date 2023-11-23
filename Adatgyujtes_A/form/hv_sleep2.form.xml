@@ -1,0 +1,84 @@
+﻿<Form name="hv_sleep2" description="Mobilengine" ksubmit="nobutton" hidden="true" typed="true" dateformat='(dtf MM"-"dd"-"yyyy" "HH":"mm":"ss)' numberformat='{decimalSeparator:"."}' >
+	<Rgsyl>
+		<Syl syln="RootSyl" clrBg="#ffffff" />
+		<Syl syln="HRSyl" clrBg="#000000" duPaddingTop="1px" />
+		<Syl syln="HiddenSyl" clrBg="#000000" clrFont="#ffffff" fBold="true" />
+		<Syl syln="QuestionLabelSyl" pctFontSize="150" halign="center" fBold="true" />
+		<Syl syln="TextSyl"  pctFontSize="220" halignValue="center" />
+		<Syl syln="DropdownSyl"  pctFontSize="150" halignValue="center" duPaddingLeft="20dp" duPaddingRight="20dp" />
+		<Syl syln="ForwardSyl" clrBg="#FFFFFF" duIconHeightValue="70dp" duIconWidthValue="70dp" halign="right" iconValue='forward_green' buttonStyle='flat' />
+		<Syl syln="BackSyl" clrBg="#FFFFFF" duIconHeightValue="70dp" duIconWidthValue="70dp" halign="left" iconValue='back_grey' buttonStyle='flat' />
+		<Syl syln="TypeFinishSyl" clrBg="#FFFFFF" duIconHeightValue="70dp" duIconWidthValue="70dp" halign="right" iconValue='finish' buttonStyle='flat' />
+		<Syl syln="PB00Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="left" iconValue='progressbar_0' buttonStyle='flat' />
+		<Syl syln="PB05Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="left" iconValue='progressbar_5' buttonStyle='flat' />
+		<Syl syln="PB10Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_10' buttonStyle='flat' />
+		<Syl syln="PB15Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_15' buttonStyle='flat' />
+		<Syl syln="PB20Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_20' buttonStyle='flat' />
+		<Syl syln="PB25Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_25' buttonStyle='flat' />
+		<Syl syln="PB30Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_30' buttonStyle='flat' />
+		<Syl syln="PB35Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_35' buttonStyle='flat' />
+		<Syl syln="PB40Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_40' buttonStyle='flat' />
+		<Syl syln="PB45Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_45' buttonStyle='flat' />
+		<Syl syln="PB50Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_50' buttonStyle='flat' />
+		<Syl syln="PB55Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_55' buttonStyle='flat' />
+		<Syl syln="PB60Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_60' buttonStyle='flat' />
+		<Syl syln="PB65Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_65' buttonStyle='flat' />
+		<Syl syln="PB70Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_70' buttonStyle='flat' />
+		<Syl syln="PB75Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_75' buttonStyle='flat' />
+		<Syl syln="PB80Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_85' buttonStyle='flat' />
+		<Syl syln="PB85Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_80' buttonStyle='flat' />
+		<Syl syln="PB90Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_90' buttonStyle='flat' />
+		<Syl syln="PB95Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_95' buttonStyle='flat' />
+		<Syl syln="PB100Syl" clrBg="#FFFFFF" duIconHeightValue="20dp" duIconWidthValue="225dp" halign="center" iconValue='progressbar_100' buttonStyle='flat' />
+	</Rgsyl>
+	<Control type="panel" name="Root" sylnChild="=RootSyl">
+	<!-- system data -->
+		<Control type="label" name="Sys_Form_Ver" label="SysFormVer" text="1" sylnCrown="=HiddenSyl" visible="false" />
+		<Control type="label" name="Sys_User" label="SysUser" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @user" />
+		<Control type="label" name="Sys_Date" data_type="datetime" label="SysDate:" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @dtlNow" />
+	<!-- end of system data -->
+	
+	<!-- solution data -->
+		<Control type="label" name="SubjectID" label="SubjectID" sylnCrown="=HiddenSyl" visible="false" reference="SELECT subject_id FROM Reference_hv_user WHERE usr = @user AND status_id &lt; 60" />
+		<!-- Autómatikusan tölti a rendszer, ennek a kérdésnek az id-ját csak akkor változtasd ha a question táblában is átírtad!! -->
+		<Control type="label" name="AutomaticallyFillQuestionID" label="AutomaticallyFillQuestionID" sylnCrown="=HiddenSyl" visible="false" text="9000" />
+		<Control type="label" name="AutomaticallyFillGuid" label="AutomaticallyFillGuid" sylnCrown="=HiddenSyl" visible="false" reference="GUID" />
+		<!-- Autómatikusan tölti a rendszer, ennek a kérdésnek az id-ját csak akkor változtasd ha a question táblában is átírtad!! -->
+		<Control type="label" name="QuestionID" label="QuestionID" sylnCrown="=HiddenSyl" visible="false" text="9002" />
+		<Control type="label" name="Guid" label="Guid" sylnCrown="=HiddenSyl" visible="false" reference="GUID" />
+		<Control type="label" name="VASQuestionCount" label="VASQuestionCount" visible="false" data_type="int" reference="SELECT COUNT(type) FROM Reference_hv_questions WHERE type = 'VAS' "  sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="NumOfAnsweredQuestion" label="NumOfAnsweredQuestion" visible="false" data_type="int" reference="SELECT (COUNT(DISTINCT ATP.question_id) - 1) FROM Reference_hv_answer_temp ATP INNER JOIN Reference_hv_questions Q ON ATP.question_id = Q.question_id WHERE ATP.subject_id = @1 AND ATP.usr = @user AND ATP.answer IS NOT NULL AND ATP.answer != ''" ref_arg="//Root/SubjectID,//Root/Category_Type" sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="VASGoToSleepCount" label="VASGoToSleepCount" visible="false" data_type="int" reference="SELECT @1 + 1 "  ref_arg="//Root/VASQuestionCount" sylnCrown="=HiddenSyl"/>
+		<Control type="label" name="CategoryCountGoToSleepVASPercent" label="CategoryCountGoToSleepVASPercent" visible="false" data_type="float" reference="SELECT  ROUND(ROUND(@1 * 1.0 / @2  ,2)*100,0)" ref_arg="//Root/NumOfAnsweredQuestion,//Root/VASGoToSleepCount" sylnCrown="=HiddenSyl"/>
+	<!-- end of solution data -->
+	
+		<Control type="label" name="questionText" sylnCrown="=QuestionLabelSyl" reference="SELECT question FROM Reference_hv_questions WHERE question_id = @1" ref_arg="//Root/QuestionID" submit="false" />
+		<Control type="label" name="BR1" submit="false" />
+		<Control type="label" name="BR2" submit="false" />
+		<Control type="combobox" name="DateCombox" choice="button" size="large" data_type="string,string" reference="SELECT STRFTIME('%Y-%m-%d ', @dtlNow ) key, ' Today ' value UNION ALL SELECT STRFTIME('%Y-%m-%d ', DATE(@dtlNow , '+1 day')) key, ' Tomorrow ' value" value_reference="SELECT CASE WHEN STRFTIME('%m-%d-%Y', @dtlNow ) = SUBSTR(answer, 1, 10) THEN ' Today ' WHEN STRFTIME('%m-%d-%Y', DATE(@dtlNow , '+1 day')) = SUBSTR(answer, 1, 10) THEN ' Tomorrow ' ELSE '' END FROM Reference_hv_answer_temp WHERE question_id = @1 AND subject_id = @2 AND usr = @user " value_ref_arg="//Root/QuestionID,//Root/SubjectID" sylnCrown="=DropdownSyl" >
+			<Validators>
+				<Validator type="RequiredValidator" />
+			</Validators>
+		</Control>
+		<Control type="label" name="BR3" submit="false" />
+		<Control type="label" name="BR4" submit="false" />
+		<Control type="textbox" name="TimeAnswer" size="large" ptype="time" is24h="false" readonly="true" sylnCrown="=TextSyl" dateformat='(dtf HH":"mm)' reference="SELECT CASE WHEN COUNT(1) = 0 THEN DATETIME(STRFTIME('%Y-%m-%d 00:00:00', @dtlNow )) ELSE DATETIME(@3 || SUBSTR(answer, 12, 5)) END FROM Reference_hv_answer_temp WHERE question_id = @1 AND subject_id = @2 AND usr = @user " ref_arg="//Root/QuestionID,//Root/SubjectID,../DateCombox.key" >
+			<Validators>
+				<Validator type="RequiredValidator" />
+			</Validators>
+		</Control>
+		<Control type="label" name="DateAnswer" label="DateAnswer" sylnCrown="=HiddenSyl" visible="false" data_type="datetime" dateformat='(dtf MM"-"dd"-"yyyy" "HH":"mm)' reference="SELECT DATETIME(@1)" ref_arg="../DateAnswerEuropeFormat"	/>
+		<Control type="label" name="DateAnswerEuropeFormat" label="DateAnswerEuropeFormat" sylnCrown="=HiddenSyl" visible="false" reference="SELECT @1 || STRFTIME('%H:%M:%S', @2 )" ref_arg="../DateCombox.key,../TimeAnswer"	/>
+		<Control type="label" name="NextQuestionID" label="NextQuestionID" sylnCrown="=HiddenSyl" visible="false" data_type="int" reference="SELECT question_id FROM Reference_hv_questions WHERE type = 'VAS' ORDER BY question_sequence LIMIT 1" />
+		<Control type="label" name="BR5" submit="false" />
+		<Control type="label" name="BR6" submit="false" />
+		<Control type="panel" name="BTN_T" layout="table" navigation="inline" headless="true" width="1swt">
+			<Control type="closebutton" name="Back" action="discard_form" width="0.5swt" next_form_name="hv_sleep1" sylnCrown="=BackSyl" />
+			<Control type="closebutton" name="Forward"  action="submit_form" text="" width="0.5swt" next_form_name="Questionaire" sylnCrown="=ForwardSyl"/>
+		</Control>
+		<Control type="panel" name="ProgressBar_T" layout="table" navigation="inline" width="1swt" headless="true" >
+			<Control type="label" name="ProgressBar" width="0.76swt" sylnCrown="SELECT CASE WHEN @1 BETWEEN 0 AND 4 THEN 'PB00Syl' WHEN @1 BETWEEN 5 AND 9 THEN 'PB05Syl' WHEN @1 BETWEEN 10 AND 14 THEN 'PB10Syl' WHEN @1 BETWEEN 15 AND 19 THEN 'PB15Syl' WHEN @1 BETWEEN 20 AND 24 THEN 'PB20Syl' WHEN @1 BETWEEN 25 AND 29 THEN 'PB25Syl' WHEN @1 BETWEEN 30 AND 34 THEN 'PB30Syl' WHEN @1 BETWEEN 35 AND 39 THEN 'PB35Syl' WHEN @1 BETWEEN 40 AND 44 THEN 'PB40Syl' WHEN @1 BETWEEN 45 AND 49 THEN 'PB45Syl' WHEN @1 BETWEEN 50 AND 54 THEN 'PB50Syl' WHEN @1 BETWEEN 55 AND 59 THEN 'PB55Syl' WHEN @1 BETWEEN 60 AND 64 THEN 'PB60Syl' WHEN @1 BETWEEN 65 AND 69 THEN 'PB65Syl' WHEN @1 BETWEEN 70 AND 74 THEN 'PB70Syl' WHEN @1 BETWEEN 75 AND 79 THEN 'PB75Syl' WHEN @1 BETWEEN 80 AND 84 THEN 'PB80Syl' WHEN @1 BETWEEN 85 AND 89 THEN 'PB85Syl' WHEN @1 BETWEEN 90 AND 94  THEN 'PB90Syl' WHEN @1 BETWEEN 95 AND 100  THEN 'PB100Syl' ELSE 'PB00Syl' END" sylnargCrown="//Root/CategoryCountGoToSleepVASPercent" />
+			<Control type="label" name="AnswerCounterBasic" label="" text="" width="0.24swt" reference="SELECT CASE WHEN @1 = -1 THEN 0 ELSE @1 END  || '/' || @2  " ref_arg="//Root/NumOfAnsweredQuestion,//Root/VASGoToSleepCount" />
+		</Control>
+	</Control>
+</Form>

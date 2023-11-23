@@ -1,0 +1,15 @@
+<Reftab Name="ti_faradtsag_valaszok" xmlns="http://schemas.mobilengine.com/reftab/v1" NullOnDelete="true" Access="Hidden" > 
+	<Columns>
+		<Column Name="id" Type="Text" NotNull="true" PrimaryKey="true" />
+		<Column Name="kerdoiv_id" Type="Text" NotNull="true" />
+		<Column Name="kerdes_id" Type="Text" />
+		<Column Name="kerdes_tipus" Type="Text" />
+		<Column Name="valasz" Type="Text" />
+		<Column Name="user" Type="Text" />
+		<Column Name="created" Type="Date" NotNull="true" />
+		<Column Name="kitoltes_kezdete" Type="Date" NotNull="true" />
+		<Column Name="kitoltes_vege" Type="Date" NotNull="true" />
+		<Column Name="gps_lat" Type="Float" />
+		<Column Name="gps_long" Type="Float" />
+	</Columns>
+</Reftab>

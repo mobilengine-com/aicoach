@@ -1,0 +1,132 @@
+server program hv_dashboard_server for form hv_dashboard
+using reftab hv_user;
+using reftab hv_next_form_temp;
+using reftab hv_answer_temp;
+using reftab hv_missing;
+using reftab alarms;
+using reftab hv_export;
+using reftab hv_export_archive;
+
+{
+
+	var timestamp = null;
+	
+	if (form.dtlSubmit == null)
+		timestamp = dtl.Now();
+ 	else
+		timestamp = form.dtlSubmit;
+
+	if (form.controlSubmit.nid == "SetNewSubjectID")
+	{
+		db.hv_user.Insert({
+			usr: form.user.name,
+			subject_id: form.Root.EnterSubjectData[0].SubjectID.value.ToUpper(),
+			status_id: 10
+		});
+	}
+	
+	if (form.controlSubmit.nid == "AdminLogin")
+	{
+		db.hv_user.InsertOrUpdate({
+			usr: form.user.name,
+			subject_id: form.Root.SubjectID.value
+		},{
+			status_id: 60
+		});
+	}
+	
+	if (form.controlSubmit.nid == "OpenQuestion")
+	{
+		db.hv_next_form_temp.InsertOrUpdate({usr: form.user.name},{
+			question_id: int.Parse(form.controlSubmit.parent.NextQuestionID.value)
+		});
+		
+		db.hv_user.Update(
+		{
+			usr: form.user.name, 
+			subject_id: form.Root.SubjectID.value
+		},{
+			status_id: 20
+		});
+	}
+	
+	if (form.controlSubmit.nid == "OpenVas")
+	{
+		db.hv_next_form_temp.InsertOrUpdate({usr: form.user.name},{
+			question_id: int.Parse(form.controlSubmit.parent.NextQuestionID.value)
+		});
+	}
+	
+	if (form.controlSubmit.nid == "OpenSleepDiary")
+	{
+		if ( form.controlSubmit.parent.NextQuestionID.value != "" ) {
+		
+			db.hv_next_form_temp.InsertOrUpdate({usr: form.user.name},{
+				question_id: int.Parse(form.controlSubmit.parent.NextQuestionID.value)
+			});
+			
+			db.hv_answer_temp.Insert({
+				guid: form.controlSubmit.parent.AutomaticallyFillGuid.value,
+				usr: form.user.name,
+				subject_id: form.Root.SubjectID.value,
+				question_id: int.Parse(form.controlSubmit.parent.AutomaticallyFillQuestionID.value),
+				answer: timestamp.Format((dtf MM "-" dd "-" yyyy " " HH ":" mm)),
+				timestamp: timestamp.Format((dtf MM "-" dd "-" yyyy " " HH ":" mm ":" ss))
+			});
+		
+		}
+		
+		db.hv_user.Update(
+		{
+			usr: form.user.name, 
+			subject_id: form.Root.SubjectID.value
+		},{
+			status_id: 31
+		});
+	}
+	
+	foreach(var missing in form.Root.MissingVas) {
+		db.hv_missing.Insert({
+			guid: missing.guid.value,
+			subject_id: form.Root.SubjectID.value,
+			alarm_start: dtl.Parse((dtf yyyy"-"MM"-"dd" "HH":"mm":"ss), missing.alarm_start.value).DtlToDtdb(),
+			alarm_finish: dtl.Parse((dtf yyyy"-"MM"-"dd" "HH":"mm":"ss), missing.alarm_finish.value).DtlToDtdb()
+		});
+		
+		db.alarms.Delete({user: form.user.name, alarm_id: int.Parse(missing.alarm_id.value)});
+		
+	}
+	
+	
+	var archiveDateNow = dtl.Now();
+	var archiveDate = archiveDateNow.DtlAddDays(-30);
+	var lstSubjectIds = null;
+	var subjectIds = null;
+
+	var LoadSubjectId = function()
+	{
+		var subjectIds = list.New();
+			foreach(var rec in db.hv_user.Read(map.New()))
+			{
+				if (rec.period_finish != null) {
+					if(rec.period_finish.DeclareAsDtl() < archiveDate ) {
+						subjectIds.Add(rec.subject_id);
+					}
+				}
+				
+			}
+			return subjectIds;
+	};
+	
+	lstSubjectIds = LoadSubjectId();
+		foreach (var subjectId in lstSubjectIds) { 
+			
+			foreach (var row in db.hv_export.Read({subject_id: subjectId}))
+			{
+				db.hv_export_archive.Insert(row);
+				db.hv_export.Delete(row);
+			}
+			
+		}	
+
+}

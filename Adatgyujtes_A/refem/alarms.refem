@@ -1,0 +1,12 @@
+<Reftab Name="alarms" xmlns="http://schemas.mobilengine.com/reftab/v1" >
+  <Columns>
+    <Column Name="user" Type="Text" PrimaryKey="true" NotNull="true" AgentName="true" />
+    <Column Name="alarm_id" Type="Integer" PrimaryKey="true" NotNull="true" />
+    <Column Name="alarm_start" Type="Date" NotNull="true" />
+    <Column Name="alarm_finish" Type="Date" NotNull="true" />
+    <Column Name="alarm_interval_min" Type="Integer" NotNull="true" />
+    <Column Name="notification_title" Type="Text" NotNull="true" />
+    <Column Name="notification_text" Type="Text" NotNull="true" />
+    <Column Name="notification_enabled" Type="Text" NotNull="true" />
+  </Columns>
+</Reftab>
